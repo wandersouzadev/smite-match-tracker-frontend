@@ -1,0 +1,1 @@
+export { ConfigTemplate } from "./config";
