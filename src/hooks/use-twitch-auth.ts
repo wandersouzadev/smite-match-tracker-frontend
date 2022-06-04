@@ -3,7 +3,7 @@ import { twitchHelperState } from "@/recoil/atoms/twitch-helper";
 import { useEffect } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
-export const useTwitchHelper = () => {
+export const useTwitchAuth = () => {
   const twitchHelper = useRecoilValue(twitchHelperState);
   const setTwitchAuth = useSetRecoilState(twitchAuthDataState);
 
