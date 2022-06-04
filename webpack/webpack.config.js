@@ -1,28 +1,29 @@
-const path = require("path")
+const path = require('path')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const {TsconfigPathsPlugin} = require("tsconfig-paths-webpack-plugin")
+const {TsconfigPathsPlugin} = require('tsconfig-paths-webpack-plugin')
 const Dotenv = require('dotenv-webpack');
-const CopyPlugin = require("copy-webpack-plugin")
-const {sourceAppPath, publicFolderPath, distFolderPath} = require('./paths')
+const CopyPlugin = require('copy-webpack-plugin')
+const {sourceAppPath, publicFolderPath, distFolderPath} = require('./paths');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = (_env,argv) => {
 
   let entryPoints = {
     Config:{
-      path: path.resolve(sourceAppPath, "config.tsx"),
-      outputHtml: "config.html",
+      path: path.resolve(sourceAppPath, 'config.tsx'),
+      outputHtml: 'config.html',
       build:true
     },
     LiveConfig:{
-      path: path.resolve(sourceAppPath, "live-config.tsx"),
-      outputHtml: "live_config.html",
+      path: path.resolve(sourceAppPath, 'live-config.tsx'),
+      outputHtml: 'live_config.html',
       build:true
     },
     VideoOverlay:{
-      path: path.resolve(sourceAppPath, "video-overlay.tsx"),
-      outputHtml: "video_overlay.html",
+      path: path.resolve(sourceAppPath, 'video-overlay.tsx'),
+      outputHtml: 'video_overlay.html',
       build:true
     },
   }
@@ -34,9 +35,10 @@ module.exports = (_env,argv) => {
     new Dotenv(),
     new CopyPlugin({
       patterns: [
-        { context: publicFolderPath, from: "**/*.png", to: distFolderPath },
+        { context: publicFolderPath, from: '**/*.png', to: distFolderPath },
       ],
     }),
+    new MiniCssExtractPlugin()
   ]
 
   for(name in entryPoints){
@@ -46,7 +48,7 @@ module.exports = (_env,argv) => {
         plugins.push(new HtmlWebpackPlugin({
           inject:true,
           chunks:[name],
-          template: path.resolve(publicFolderPath, "index.html"),
+          template: path.resolve(publicFolderPath, 'index.html'),
           filename: entryPoints[name].outputHtml
         }))
       
@@ -70,14 +72,18 @@ module.exports = (_env,argv) => {
           test: /\.svg$/,
           use: ['@svgr/webpack', 'url-loader'],
         },
+        {
+          test: /\.(css|sass|scss)/i,
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader']
+        }
       ]
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".jsx", ".js"],
-      plugins: [new TsconfigPathsPlugin({configFile: path.resolve(__dirname, "..", "tsconfig.json")})]
+      extensions: ['.tsx', '.ts', '.jsx', '.js'],
+      plugins: [new TsconfigPathsPlugin({configFile: path.resolve(__dirname, '..', 'tsconfig.json')})]
     },
     output: {
-      filename: "[name].bundle.js",
+      filename: '[name].bundle.js',
       path: distFolderPath
     },
     plugins
@@ -85,13 +91,15 @@ module.exports = (_env,argv) => {
 
   if(argv.mode==='development'){
     config.devServer = {
-      host:argv.devrig ? 'localhost.rig.twitch.tv' : 'localhost',
+      https: true,
+      static: {
+        directory: publicFolderPath
+      },
       headers: {
         'Access-Control-Allow-Origin': '*'
       },
       port: 3000
     }
-    config.devServer.https = true
   }
   
   if(argv.mode === 'production') {
