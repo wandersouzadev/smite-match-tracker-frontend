@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  sourceAppPath: path.resolve(__dirname, "..", "src", "app"),
+  pagesPath: path.resolve(__dirname, "..", "src", "pages"),
   publicFolderPath: path.resolve(__dirname, "..", "public"),
   distFolderPath: path.resolve(__dirname, "..", "dist")
 }

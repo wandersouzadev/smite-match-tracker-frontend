@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {TsconfigPathsPlugin} = require('tsconfig-paths-webpack-plugin')
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin')
-const {sourceAppPath, publicFolderPath, distFolderPath} = require('./paths');
+const {pagesPath, publicFolderPath, distFolderPath} = require('./common-paths');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
@@ -12,17 +12,17 @@ module.exports = (_env,argv) => {
 
   let entryPoints = {
     Config:{
-      path: path.resolve(sourceAppPath, 'config.tsx'),
+      path: path.resolve(pagesPath, 'config.tsx'),
       outputHtml: 'config.html',
       build:true
     },
     LiveConfig:{
-      path: path.resolve(sourceAppPath, 'live-config.tsx'),
+      path: path.resolve(pagesPath, 'live-config.tsx'),
       outputHtml: 'live_config.html',
       build:true
     },
     VideoOverlay:{
-      path: path.resolve(sourceAppPath, 'video-overlay.tsx'),
+      path: path.resolve(pagesPath, 'video-overlay.tsx'),
       outputHtml: 'video_overlay.html',
       build:true
     },
@@ -88,6 +88,14 @@ module.exports = (_env,argv) => {
               loader: 'sass-loader',
             },
             {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  path.resolve(__dirname, "..", "src", "styles", "variables.scss")
+                ]
+              }
+            },
+            {
               loader: 'postcss-loader',
             }
           ]
@@ -95,7 +103,7 @@ module.exports = (_env,argv) => {
       ]
     },
     resolve: {
-      extensions: ['.tsx', '.ts', '.jsx', '.js', '.scss'],
+      extensions: ['.tsx', '.ts', '.jsx', '.js', '.css', '.scss'],
       plugins: [new TsconfigPathsPlugin({configFile: path.resolve(__dirname, '..', 'tsconfig.json')})]
     },
     output: {
