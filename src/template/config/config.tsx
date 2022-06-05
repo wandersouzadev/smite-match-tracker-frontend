@@ -1,4 +1,4 @@
-import { AccountList } from "@/components/account-list";
+import { SmiteAccounts } from "@/components/smite-accounts";
 import { SmiteSearchConfirmation } from "@/components/smite-search-confirmation";
 import { TwitchAccount } from "@/components/twitch-account";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
@@ -11,7 +11,7 @@ export const ConfigTemplate: React.FC = () => {
   return (
     <div className={Styles["config-wrapper"]}>
       <aside className={Styles.aside}>
-        <AccountList />
+        <SmiteAccounts />
         <TwitchAccount />
       </aside>
       <main className={Styles.main}>

@@ -9,14 +9,17 @@ import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import * as S from "./styles";
 
-export const AccountList: React.FC = () => {
+export const SmiteAccounts: React.FC = () => {
   const twitchHelper = useRecoilValue(twitchHelperState);
   const [smiteAccounts, setSmiteAccounts] = useRecoilState(smiteAccountState);
   const twitchAuthData = useRecoilValue(twitchAuthDataState);
 
   const { data, isLoading, isError } = useEbs({
     path: "/twitch/configuration/segment",
-    token: twitchAuthData?.token
+    token: twitchAuthData?.token,
+    config: {
+      revalidateOnFocus: false
+    }
   });
 
   useEffect(() => {

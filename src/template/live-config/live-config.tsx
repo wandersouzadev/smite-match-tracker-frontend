@@ -1,4 +1,4 @@
-import { AccountList } from "@/components/account-list";
+import { SmiteAccounts } from "@/components/smite-accounts";
 import { TwitchAccount } from "@/components/twitch-account";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import React from "react";
@@ -9,7 +9,7 @@ export const LiveConfigTemplate: React.FC = () => {
   return (
     <div className={Styles.wrapper}>
       <TwitchAccount />
-      <AccountList />
+      <SmiteAccounts />
     </div>
   );
 };
