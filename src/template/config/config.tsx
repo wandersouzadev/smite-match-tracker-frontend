@@ -1,6 +1,6 @@
 import { SmiteAccounts } from "@/components/smite-accounts";
 import { SmiteSearchConfirmation } from "@/components/smite-search-confirmation";
-import { TwitchAccount } from "@/components/twitch-account";
+import { TwitchProfile } from "@/components/twitch-profile";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { TwitterLogo } from "phosphor-react";
 import React from "react";
@@ -12,7 +12,7 @@ export const ConfigTemplate: React.FC = () => {
     <div className={Styles["config-wrapper"]}>
       <aside className={Styles.aside}>
         <SmiteAccounts />
-        <TwitchAccount />
+        <TwitchProfile />
       </aside>
       <main className={Styles.main}>
         <img src="logo.png" alt="logo" width={400} height={100} />

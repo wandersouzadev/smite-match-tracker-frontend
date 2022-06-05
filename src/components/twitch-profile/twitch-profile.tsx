@@ -4,7 +4,7 @@ import React from "react";
 import { useRecoilValue } from "recoil";
 import Styles from "./styles.module.scss";
 
-export const TwitchAccount: React.FC = () => {
+export const TwitchProfile: React.FC = () => {
   const twitchAuth = useRecoilValue(twitchAuthDataState);
 
   const { data, isLoading, isError } = useEbs({
