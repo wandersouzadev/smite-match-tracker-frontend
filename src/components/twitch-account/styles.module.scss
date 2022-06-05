@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-image {
+  width: 24px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-weight: bold;
+}

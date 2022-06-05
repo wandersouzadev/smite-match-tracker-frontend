@@ -2,7 +2,7 @@ import { useEbs } from "@/hooks/use-ebs";
 import { twitchAuthDataState } from "@/recoil/atoms/twitch-auth-data";
 import React from "react";
 import { useRecoilValue } from "recoil";
-import * as S from "./styles";
+import Styles from "./styles.module.scss";
 
 export const TwitchAccount: React.FC = () => {
   const twitchAuth = useRecoilValue(twitchAuthDataState);
@@ -13,20 +13,21 @@ export const TwitchAccount: React.FC = () => {
   });
 
   if (isLoading) {
-    return <h1>loading...</h1>;
+    return <>Loading...</>;
   }
 
   if (isError) {
-    return <h1>error</h1>;
+    return <>Error</>;
   }
 
   return (
-    <S.TwitchAccountWrapper>
-      <S.TwitchAvatar src={data.profile_image_url} />
-      <S.TwitchUsername>
-        twitch.tv/
-        {data.login}
-      </S.TwitchUsername>
-    </S.TwitchAccountWrapper>
+    <div className={Styles.wrapper}>
+      <img
+        className={Styles["profile-image"]}
+        src={data.profile_image_url}
+        alt="twitch profile"
+      />
+      <p className={Styles["profile-name"]}>twitch.tv/{data.login}</p>
+    </div>
   );
 };
