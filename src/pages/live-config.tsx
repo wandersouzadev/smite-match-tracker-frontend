@@ -1,4 +1,5 @@
 import { GlobalStyles } from "@/styles/global-styles";
+import "@/styles/global.scss";
 import { theme } from "@/styles/theme";
 import { LiveConfigTemplate } from "@/template/live-config";
 import React from "react";

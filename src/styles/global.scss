@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: $violet11;
+  background-color: $mauve1;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-width: thin;
+  scroll-snap-type: none;
+}

@@ -1,4 +1,5 @@
 import { GlobalStyles } from "@/styles/global-styles";
+import "@/styles/global.scss";
 import { theme } from "@/styles/theme";
 import { OverlayTemplate } from "@/template/video-overlay";
 import React from "react";
