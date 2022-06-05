@@ -1,13 +1,15 @@
 import { AccountList } from "@/components/account-list";
-import { useTwitchHelper } from "@/hooks/use-twitch-helper";
+import { TwitchAccount } from "@/components/twitch-account";
+import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import React from "react";
-import * as S from "./styles";
+import Styles from "./styles.module.scss";
 
 export const LiveConfigTemplate: React.FC = () => {
-  useTwitchHelper();
+  useTwitchAuth();
   return (
-    <S.LiveConfigWrapper>
+    <div className={Styles.wrapper}>
+      <TwitchAccount />
       <AccountList />
-    </S.LiveConfigWrapper>
+    </div>
   );
 };
