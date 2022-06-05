@@ -74,12 +74,28 @@ module.exports = (_env,argv) => {
         },
         {
           test: /\.(css|sass|scss)/i,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader']
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+            },
+            {
+              loader: 'postcss-loader',
+            }
+          ]
         }
       ]
     },
     resolve: {
-      extensions: ['.tsx', '.ts', '.jsx', '.js'],
+      extensions: ['.tsx', '.ts', '.jsx', '.js', '.scss'],
       plugins: [new TsconfigPathsPlugin({configFile: path.resolve(__dirname, '..', 'tsconfig.json')})]
     },
     output: {
