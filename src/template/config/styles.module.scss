@@ -1,4 +1,5 @@
 .config-wrapper {
+  position: relative;
   background-color: $mauve1;
   display: flex;
   flex-direction: column;
@@ -21,8 +22,33 @@
   grid-area: aside;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   position: relative;
+  gap: 1rem;
+
+  margin: 0 2px;
+}
+
+.smite-accounts {
+  h2 {
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+
+    span {
+      cursor: pointer;
+    }
+  }
+
+  @media (min-width: 699px) {
+    margin: auto 0;
+  }
+}
+
+.twitch-profile {
+  @media (min-width: 699px) {
+    position: absolute;
+    bottom: 1px;
+  }
 }
 
 .main {
@@ -32,14 +58,26 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  background-color: $mauve2;
+
+  @media (min-width: 699px) {
+    background-color: $mauve2;
+  }
 }
 
 .footer {
-  grid-area: footer;
+  width: 100%;
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $mauve2;
   gap: 0.2rem;
+
+  @media (min-width: 699px) {
+    font-size: 0.9rem;
+    position: initial;
+    grid-area: footer;
+  }
 }

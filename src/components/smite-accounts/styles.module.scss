@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: $violet2;
+}
+
+.account-list {
+  list-style: none;
+}
+
+.account {
+  margin: 0.1rem 0;
+  background-color: $violet3;
+  border: solid 0.1rem transparent;
+
+  &:nth-child(1) {
+    border-color: $violet10 !important;
+  }
+
+  &:hover {
+    background-color: $violet4;
+    border-color: $violet7;
+  }
+}
+
+.account-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-actions {
+  display: flex;
+  gap: 0.5rem;
+  button {
+    cursor: pointer;
+    color: $mauve12;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      color: $violet12;
+    }
+
+    &:disabled {
+      cursor: initial;
+    }
+  }
+}

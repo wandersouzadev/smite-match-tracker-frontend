@@ -1,13 +1,12 @@
-import { ReactComponent as CheckIcon2 } from "@/assets/check2-icon.svg";
-import { ReactComponent as TrashIcon } from "@/assets/trash-icon.svg";
-import { BrandLogos } from "@/components/brand-logos";
+import { PlatformIcon } from "@/components/platform-icon";
 import { useEbs } from "@/hooks/use-ebs";
 import { smiteAccountState } from "@/recoil/atoms/smite-context-account";
 import { twitchAuthDataState } from "@/recoil/atoms/twitch-auth-data";
 import { twitchHelperState } from "@/recoil/atoms/twitch-helper";
+import { ArrowUp, Trash } from "phosphor-react";
 import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import * as S from "./styles";
+import Styles from "./styles.module.scss";
 
 export const SmiteAccounts: React.FC = () => {
   const twitchHelper = useRecoilValue(twitchHelperState);
@@ -29,16 +28,16 @@ export const SmiteAccounts: React.FC = () => {
     }
   }, [data, setSmiteAccounts]);
 
-  const handleChangeMainAccount = (i: number) => {
+  const handleChangeMainAccount = (accountIndex: number) => {
     if (!twitchHelper || !smiteAccounts) {
       return;
     }
 
     const filteredAccounts = smiteAccounts.filter(
-      (accounts, index) => index !== i
+      (accounts, index) => index !== accountIndex
     );
 
-    filteredAccounts.unshift(smiteAccounts[i]);
+    filteredAccounts.unshift(smiteAccounts[accountIndex]);
 
     twitchHelper.configuration.set(
       "broadcaster",
@@ -73,39 +72,40 @@ export const SmiteAccounts: React.FC = () => {
     return <h1>Loading...</h1>;
   }
   if (isError) {
-    return <h1>error</h1>;
+    return <h1>Error</h1>;
   }
 
   return (
-    <S.AccountsWrapper>
-      <S.Title>MY ACCOUNTS</S.Title>
-      <S.Accounts>
+    <div className={Styles.wrapper}>
+      <ul className={Styles["account-list"]}>
         {(smiteAccounts?.length &&
           smiteAccounts?.map((account, accountIndex) => (
-            <S.Account key={account.Id}>
-              <S.AccountWrapper>
-                <S.AccountInfo>
-                  <BrandLogos iconName={account.Platform!} />
-                  {account.hz_player_name}
-                </S.AccountInfo>
-                {accountIndex ? (
-                  <S.AccountActions>
-                    <S.ActionButton
-                      onClick={() => handleChangeMainAccount(accountIndex)}
-                    >
-                      <CheckIcon2 />
-                    </S.ActionButton>
-                    <S.ActionButton
-                      onClick={() => handleRemoveSmiteAccount(accountIndex)}
-                    >
-                      <TrashIcon />
-                    </S.ActionButton>
-                  </S.AccountActions>
-                ) : null}
-              </S.AccountWrapper>
-            </S.Account>
-          ))) || <strong>no accounts</strong>}
-      </S.Accounts>
-    </S.AccountsWrapper>
+            <li className={Styles.account} key={account.Id}>
+              <div className={Styles["account-wrapper"]}>
+                <PlatformIcon platformName={account.Platform!} />
+                <p>{account.hz_player_name}</p>
+
+                <div className={Styles["account-actions"]}>
+                  <button
+                    disabled={!accountIndex}
+                    style={accountIndex ? {} : { color: "transparent" }}
+                    type="button"
+                    onClick={() => handleChangeMainAccount(accountIndex)}
+                  >
+                    <ArrowUp size={24} weight="fill" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveSmiteAccount(accountIndex)}
+                  >
+                    <Trash size={24} weight="fill" />
+                  </button>
+                </div>
+              </div>
+            </li>
+          ))) || <template />}
+      </ul>
+    </div>
   );
 };
