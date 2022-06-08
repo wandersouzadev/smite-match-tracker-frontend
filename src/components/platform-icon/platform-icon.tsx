@@ -22,7 +22,7 @@ export const PlatformIcon: React.FC<Props> = ({
       return <SteamLogoSvg width={width} height={height} />;
     case "Epic Games":
       return <EpicLogoSvg width={width} height={height} />;
-    case "Switch":
+    case "Nintendo Switch":
       return <NintendoSwitchLogoSvg width={width} height={height} />;
     case "PSN":
       return <PlaystationLogoSvg width={width} height={height} />;
