@@ -1,0 +1,63 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5rem;
+
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+}
+
+.control {
+  label {
+    display: block;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  input {
+    display: block;
+    background-color: $mauve1;
+    color: $violet12;
+    border: none;
+    line-height: 1.8rem;
+    cursor: not-allowed;
+    font-family: "Open Sans";
+    font-size: 1rem;
+  }
+}
+
+.actions {
+  grid-column: span 2;
+  justify-self: center;
+  display: flex;
+  gap: 0.5rem;
+
+  @media (min-width: 1000px) {
+    grid-column: span 3;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .confirm {
+    color: $violet9;
+
+    & :hover {
+      color: $violet8;
+    }
+  }
+
+  .close {
+    color: $mauve12;
+
+    & :hover {
+      color: $mauve11;
+    }
+  }
+}

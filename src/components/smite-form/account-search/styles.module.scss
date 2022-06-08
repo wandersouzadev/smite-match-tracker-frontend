@@ -1,0 +1,52 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+
+  label {
+    display: block;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+  }
+}
+
+.control {
+  display: flex;
+
+  input {
+    font-family: "Open Sans", sans-serif;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $mauve8;
+    color: $mauve12;
+  }
+
+  button {
+    cursor: pointer;
+    color: $mauve12;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $mauve8;
+  }
+}
+
+.platform-select {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: $mauve12;
+  }
+}
+
+.platforms {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

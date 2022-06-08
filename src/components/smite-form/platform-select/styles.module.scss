@@ -1,0 +1,27 @@
+.platform-select {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: $mauve12;
+
+    & :hover {
+      color: $mauve11;
+    }
+  }
+}
+
+.label {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+}
+
+.platforms {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
