@@ -1,13 +1,35 @@
+import { ReactComponent as GithubIcon } from "@/assets/github-logo.svg";
 import { SmiteAccounts } from "@/components/smite-accounts";
-import { SmiteSearchConfirmation } from "@/components/smite-search-confirmation";
+import { SmiteFormAccountConfirmation } from "@/components/smite-form/account-confirmation";
+import { SmiteFormAccountSearch } from "@/components/smite-form/account-search";
+import { SmiteFormPlatformSelect } from "@/components/smite-form/platform-select";
 import { TwitchProfile } from "@/components/twitch-profile";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
-import { GithubLogo, TwitterLogo } from "phosphor-react";
-import React from "react";
+import { smiteFormDataState } from "@/recoil/atoms/smite-form-data";
+import { ArrowClockwise, TwitterLogo } from "phosphor-react";
+import React, { useCallback } from "react";
+import { useRecoilValue, useResetRecoilState } from "recoil";
 import Styles from "./styles.module.scss";
 
 export const ConfigTemplate: React.FC = () => {
   useTwitchAuth();
+  const { step } = useRecoilValue(smiteFormDataState);
+  const resetSmiteFormData = useResetRecoilState(smiteFormDataState);
+
+  const refreshState = () => {
+    resetSmiteFormData();
+  };
+
+  const SmiteFormRender = useCallback(() => {
+    switch (step) {
+      case 1:
+        return <SmiteFormAccountSearch />;
+      case 2:
+        return <SmiteFormAccountConfirmation />;
+      default:
+        return <SmiteFormPlatformSelect />;
+    }
+  }, [step]);
 
   return (
     <div className={Styles["config-wrapper"]}>
@@ -21,8 +43,8 @@ export const ConfigTemplate: React.FC = () => {
         </div>
       </aside>
       <main className={Styles.main}>
-        <img src="logo.png" alt="logo" width={400} height={100} />
-        <SmiteSearchConfirmation />
+        <h1>Smite Match Tracker</h1>
+        <SmiteFormRender />
       </main>
       <footer className={Styles.footer}>
         <b>Smite Match Tracker v0.1.0</b>
@@ -31,16 +53,22 @@ export const ConfigTemplate: React.FC = () => {
           target="__blank"
           rel="noreferrer"
         >
-          <TwitterLogo size={32} />
+          <TwitterLogo size={22} />
         </a>
         <a
           href="https://github.com/wandersouzadev"
           target="__blank"
           rel="noreferrer"
         >
-          <GithubLogo size={32} />
+          <GithubIcon style={{ width: 22, height: 22 }} />
         </a>
       </footer>
+
+      <div className={Styles.reload}>
+        <button type="button" onClick={refreshState}>
+          <ArrowClockwise size={38} weight="fill" />
+        </button>
+      </div>
     </div>
   );
 };

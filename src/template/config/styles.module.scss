@@ -3,10 +3,12 @@
   background-color: $mauve1;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 700px;
+  padding-top: 5rem;
+  gap: 5rem;
 
   @media (min-width: 699px) {
+    gap: 0;
     max-width: 1200px;
     display: grid;
     grid-template-columns: minmax(350px, 20vw) 1fr;
@@ -57,7 +59,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+
+  @media (min-width: 699px) {
+    gap: 2rem;
+  }
+
+  h1 {
+    font-family: "Squada One";
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 $purple8;
+  }
 
   @media (min-width: 699px) {
     background-color: $mauve2;
@@ -76,8 +87,26 @@
   gap: 0.2rem;
 
   @media (min-width: 699px) {
+    grid-area: footer;
     font-size: 0.9rem;
     position: initial;
-    grid-area: footer;
+    background-color: $mauve1;
+  }
+}
+
+.reload {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: $mauve12;
+
+    & :hover {
+      color: $mauve11;
+    }
   }
 }
