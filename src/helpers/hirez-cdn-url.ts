@@ -1,9 +1,15 @@
-export const cdnUrlHelper = (text: string) => {
-  const godName = text.toLocaleLowerCase();
-  const godSkin = godName.replaceAll(" ", "_").replaceAll("'", "");
-  let god = godName.replaceAll(" ", "-").replaceAll("'", "");
-  if (god === "da-ji") {
-    god = "daji";
+export const hirezCdnUrlHelper = (smiteGodName: string) => {
+  let godName = smiteGodName
+    .toLocaleLowerCase()
+    .replaceAll(" ", "-")
+    .replaceAll("'", "");
+  const godSkinName = smiteGodName
+    .toLocaleLowerCase()
+    .replaceAll(" ", "_")
+    .replaceAll("'", "");
+
+  if (godName === "da-ji") {
+    godName = "daji";
   }
-  return `https://webcdn.hirezstudios.com/smite/god-skins/${godSkin}_standard-${god}.jpg`;
+  return `https://webcdn.hirezstudios.com/smite/god-skins/${godSkinName}_standard-${godName}.jpg`;
 };
