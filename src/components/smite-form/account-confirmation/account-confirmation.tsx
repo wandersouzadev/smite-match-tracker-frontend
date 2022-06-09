@@ -1,3 +1,4 @@
+import { SmitePlatformId } from "@/helpers/platform-id";
 import { useEbs } from "@/hooks/use-ebs";
 import { smiteAccountState } from "@/recoil/atoms/smite-context-account";
 import { smiteFormDataState } from "@/recoil/atoms/smite-form-data";
@@ -65,7 +66,12 @@ export const SmiteFormAccountConfirmation: React.FC = () => {
             id="account-name"
             type="text"
             disabled
-            value={data.hz_player_name || data.hz_gamer_tag}
+            value={
+              smiteFormData.platform === "" ||
+              smiteFormData.platform === SmitePlatformId.Switch.toString()
+                ? data.hz_player_name
+                : data.hz_gamer_tag
+            }
           />
         </label>
       </div>
