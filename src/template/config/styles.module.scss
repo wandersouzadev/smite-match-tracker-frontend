@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   height: 700px;
-  padding-top: 5rem;
+  padding-top: 2.5rem;
   gap: 5rem;
 
   @media (min-width: 699px) {
@@ -59,10 +59,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @media (min-width: 699px) {
-    gap: 2rem;
-  }
+  gap: 2rem;
 
   h1 {
     font-family: "Squada One";
