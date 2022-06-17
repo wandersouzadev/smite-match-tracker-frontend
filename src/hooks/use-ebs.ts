@@ -32,7 +32,7 @@ export const useEbs = <T>(ebsParams: {
   );
 
   return {
-    data: data as T | any,
+    data: data as T,
     isLoading: !error && !data,
     isError: error
   };
