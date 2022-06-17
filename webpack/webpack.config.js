@@ -35,7 +35,11 @@ module.exports = (_env,argv) => {
     new Dotenv(),
     new CopyPlugin({
       patterns: [
-        { context: publicFolderPath, from: '**/*.png', to: distFolderPath },
+        { context: publicFolderPath, from: '**/**', to: distFolderPath, globOptions: {
+          ignore: [
+              '*.html'
+          ]
+      } },
       ],
     }),
     new MiniCssExtractPlugin()
