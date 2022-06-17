@@ -68,7 +68,7 @@ export const ProfileTracker: React.FC = () => {
           </div>
           {data.Team_Name && (
             <div className={Styles.data}>
-              <strong>{data.Team_Name}</strong>
+              <strong style={{ fontSize: "0.8rem" }}>{data.Team_Name}</strong>
             </div>
           )}
           <div className={Styles.data}>
