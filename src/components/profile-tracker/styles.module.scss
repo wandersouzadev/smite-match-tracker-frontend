@@ -1,0 +1,97 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex: 1;
+  font-family: "Penumbra Half Serif";
+}
+
+.profile {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .profile-image {
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .profile-data {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-family: "Open Sans";
+    }
+
+    .data {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.league {
+  display: flex;
+  flex: 1;
+  font-weight: bold;
+}
+
+.league-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.league-content-conquest {
+  background-blend-mode: color;
+}
+.league-content-joust {
+  background-blend-mode: color;
+}
+.league-content-duel {
+  background-blend-mode: color;
+}
+
+.smite-icons {
+  font-family: "Smiticons";
+  font-style: normal;
+  width: 28px;
+  height: 28px;
+  font-size: 24px;
+}
+
+.input-select {
+  position: absolute;
+  top: 1px;
+  left: 8px;
+  display: flex;
+  gap: 0.5rem;
+
+  button {
+    border: solid 2px #85784a;
+    outline: none;
+    background-color: transparent;
+    color: $violet12;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  .active {
+    background-color: $violet1;
+  }
+}

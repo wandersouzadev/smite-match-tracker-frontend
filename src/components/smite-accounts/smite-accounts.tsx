@@ -1,7 +1,7 @@
 import { PlatformIcon } from "@/components/platform-icon";
 import { useEbs } from "@/hooks/use-ebs";
+import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { smiteAccountState } from "@/recoil/atoms/smite-context-account";
-import { twitchAuthDataState } from "@/recoil/atoms/twitch-auth-data";
 import { twitchHelperState } from "@/recoil/atoms/twitch-helper";
 import { ArrowUp, Trash } from "phosphor-react";
 import React, { useEffect } from "react";
@@ -11,9 +11,9 @@ import Styles from "./styles.module.scss";
 export const SmiteAccounts: React.FC = () => {
   const twitchHelper = useRecoilValue(twitchHelperState);
   const [smiteAccounts, setSmiteAccounts] = useRecoilState(smiteAccountState);
-  const twitchAuthData = useRecoilValue(twitchAuthDataState);
+  const twitchAuthData = useTwitchAuth();
 
-  const { data, isLoading, isError } = useEbs({
+  const { data, isLoading, isError } = useEbs<{ content: string | null }>({
     path: "/twitch/configuration/segment",
     token: twitchAuthData?.token,
     config: {
