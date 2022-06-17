@@ -66,7 +66,7 @@ export const ConfigTemplate: React.FC = () => {
 
       <div className={Styles.reload}>
         <button type="button" onClick={refreshState}>
-          <ArrowClockwise size={38} weight="fill" />
+          <ArrowClockwise weight="fill" />
         </button>
       </div>
     </div>
