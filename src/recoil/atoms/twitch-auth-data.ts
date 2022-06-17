@@ -1,14 +1,6 @@
 import { atom } from "recoil";
 
-interface TwitchAuthData {
-  channelId: string;
-  clientId: string;
-  token: string;
-  helixToken: string;
-  userId: string;
-}
-
-export const twitchAuthDataState = atom({
+export const twitchAuthState = atom({
   key: "TwitchAuthData",
-  default: null as unknown as TwitchAuthData
+  default: null as unknown as Twitch.ext.Authorized
 });
