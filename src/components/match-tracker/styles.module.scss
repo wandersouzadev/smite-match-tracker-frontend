@@ -1,0 +1,106 @@
+.match-tracker {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Penumbra Half Serif";
+
+  h3 {
+    font-weight: bold;
+  }
+}
+
+.match {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+
+  .order {
+    table {
+      background-color: $blue1;
+      border-color: $blue7;
+    }
+
+    table:hover {
+      border-color: $blue8;
+    }
+
+    tr {
+      background-color: $blue3;
+    }
+
+    tr:nth-child(odd) {
+      background-color: $blue2;
+    }
+  }
+
+  .chaos {
+    table {
+      background-color: $red1;
+      border-color: $red7;
+    }
+
+    table:hover {
+      border-color: $red8;
+    }
+
+    tr {
+      background-color: $red3;
+    }
+
+    tr:nth-child(odd) {
+      background-color: $red2;
+    }
+  }
+}
+
+.team-table {
+  font-size: 0.8rem;
+  text-align: center;
+
+  td {
+    width: 100px;
+  }
+
+  .content-img {
+    width: 70px;
+    height: 70px;
+
+    img,
+    svg {
+      object-fit: cover;
+      object-position: top;
+      width: 70px;
+      height: 70px;
+      vertical-align: bottom;
+    }
+  }
+
+  .content-name {
+    strong {
+      font-family: "Open Sans", sans-serif;
+    }
+  }
+
+  .content-mmr {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .content-winlose {
+    font-family: "Open Sans", sans-serif;
+  }
+}
+
+.streamer-player {
+  color: #ada176;
+}
+
+.waiting-match {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  font-family: "Penumbra Flare";
+  font-size: 28px;
+}
