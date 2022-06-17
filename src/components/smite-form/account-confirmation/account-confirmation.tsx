@@ -1,9 +1,9 @@
-import { SmitePlatformId } from "@/helpers/platform-id";
 import { useEbs } from "@/hooks/use-ebs";
 import { smiteAccountState } from "@/recoil/atoms/smite-context-account";
 import { smiteFormDataState } from "@/recoil/atoms/smite-form-data";
-import { twitchAuthDataState } from "@/recoil/atoms/twitch-auth-data";
+import { twitchAuthState } from "@/recoil/atoms/twitch-auth-data";
 import { twitchHelperState } from "@/recoil/atoms/twitch-helper";
+import { SmitePlayer } from "@/typings/smite/player";
 import { Check, X } from "phosphor-react";
 import React from "react";
 import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
@@ -12,12 +12,12 @@ import Styles from "./styles.module.scss";
 
 export const SmiteFormAccountConfirmation: React.FC = () => {
   const twitchHelper = useRecoilValue(twitchHelperState);
-  const twitchAuthData = useRecoilValue(twitchAuthDataState);
+  const twitchAuthData = useRecoilValue(twitchAuthState);
   const [smiteAccount, setSmiteAccount] = useRecoilState(smiteAccountState);
   const smiteFormData = useRecoilValue(smiteFormDataState);
   const resetSmiteFormData = useResetRecoilState(smiteFormDataState);
 
-  const { data, isLoading, isError } = useEbs({
+  const { data, isLoading, isError } = useEbs<SmitePlayer>({
     path: `/smite/player?account_name=${smiteFormData.nameOrId}${
       smiteFormData.platform ? `&portal_id=${smiteFormData.platform}` : ""
     }`,
@@ -33,9 +33,9 @@ export const SmiteFormAccountConfirmation: React.FC = () => {
       return;
     }
     const contextAccount = {
-      Id: data.Id as string,
-      Platform: data.Platform as string,
-      hz_player_name: data.hz_player_name as string
+      Id: data.Id,
+      Platform: data.Platform,
+      hz_player_name: data.hz_player_name
     };
     const accounts = Object.assign([], smiteAccount);
 
@@ -66,12 +66,7 @@ export const SmiteFormAccountConfirmation: React.FC = () => {
             id="account-name"
             type="text"
             disabled
-            value={
-              smiteFormData.platform === "" ||
-              smiteFormData.platform === SmitePlatformId.Switch.toString()
-                ? data.hz_player_name
-                : data.hz_gamer_tag
-            }
+            value={data.hz_gamer_tag || data.hz_player_name}
           />
         </label>
       </div>
