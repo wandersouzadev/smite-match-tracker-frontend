@@ -95,7 +95,8 @@ module.exports = (_env,argv) => {
               loader: 'sass-resources-loader',
               options: {
                 resources: [
-                  path.resolve(__dirname, "..", "src", "styles", "variables.scss")
+                  path.resolve(__dirname, "..", "src", "styles", "settings", "_colors.scss"),
+                  path.resolve(__dirname, "..", "src", "styles", "settings", "_fonts.scss")
                 ]
               }
             },
@@ -120,6 +121,7 @@ module.exports = (_env,argv) => {
   if(argv.mode==='development'){
     config.devServer = {
       https: true,
+      allowedHosts: "all",
       static: {
         directory: publicFolderPath
       },
