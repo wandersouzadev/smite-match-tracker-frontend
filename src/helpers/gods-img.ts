@@ -1,4 +1,4 @@
-export const hirezCdnUrlHelper = (smiteGodName: string) => {
+export const cdnGodsImgLoad = (smiteGodName: string) => {
   let godName = smiteGodName
     .toLocaleLowerCase()
     .replaceAll(" ", "-")
