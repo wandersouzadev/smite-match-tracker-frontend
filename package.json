@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "rimraf dist && webpack --config webpack/webpack.config.js --mode development",
+    "build": "rimraf dist && webpack --config webpack/webpack.config.js --mode production",
     "dev": "webpack serve --config webpack/webpack.config.js --mode development",
     "zip": "rimraf app.zip && cd ./dist && zip -r ../app.zip *",
     "lint": "eslint src --fix --ext .ts,.tsx"
@@ -61,6 +61,7 @@
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
     "axios": "^0.27.2",
+    "classnames": "^2.3.1",
     "phosphor-react": "^1.4.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
