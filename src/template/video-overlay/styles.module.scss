@@ -1,0 +1,42 @@
+.wrapper {
+  margin-top: 7rem;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+
+  @media (max-height: 600px) {
+    margin-top: 2rem;
+  }
+}
+
+.minimized-overlay {
+  position: absolute;
+  top: 60%;
+
+  cursor: pointer;
+  font-family: "Penumbra Flare";
+  color: #85784a;
+  text-shadow: 1px 1px 1px black;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  strong {
+    font-size: 0.7rem;
+    opacity: 0;
+    margin-left: -50px;
+    transition: all ease-in-out 0.2s;
+  }
+  .overlay-icon {
+    height: 40px;
+  }
+
+  &:hover {
+    strong {
+      opacity: 1;
+      margin-left: 0;
+    }
+  }
+}
