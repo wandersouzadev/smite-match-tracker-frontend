@@ -47,7 +47,7 @@ export const ConfigTemplate: React.FC = () => {
         <SmiteFormRender />
       </main>
       <footer className={Styles.footer}>
-        <b>Smite Match Tracker v0.1.0</b>
+        <b>Smite Match Tracker v0.9.0</b>
         <a
           href="https://twitter.com/wandersouzadev"
           target="__blank"
