@@ -37,7 +37,7 @@ module.exports = (_env,argv) => {
       patterns: [
         { context: publicFolderPath, from: '**/**', to: distFolderPath, globOptions: {
           ignore: [
-              '*.html'
+              '**/index.html'
           ]
       } },
       ],
