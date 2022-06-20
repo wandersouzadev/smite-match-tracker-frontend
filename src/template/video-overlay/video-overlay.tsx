@@ -1,4 +1,5 @@
 import { SmiteOverlay } from "@/components/smite-overlay";
+import { useTwitchContext } from "@/hooks/use-twitch-context";
 import { appConfigState } from "@/recoil/atoms/config-state";
 import React from "react";
 import { useRecoilState } from "recoil";
@@ -6,6 +7,8 @@ import Styles from "./styles.module.scss";
 
 export const OverlayTemplate: React.FC = () => {
   const [appConfig, setAppConfig] = useRecoilState(appConfigState);
+
+  const twitchContext = useTwitchContext();
 
   return (
     <div className={Styles.wrapper}>
@@ -22,7 +25,11 @@ export const OverlayTemplate: React.FC = () => {
             alt="logo"
             className={Styles["overlay-icon"]}
           />
-          <strong>MATCH TRACKER</strong>
+          <strong
+            className={twitchContext?.arePlayerControlsVisible && Styles.show}
+          >
+            MATCH TRACKER
+          </strong>
         </div>
       ) : (
         <SmiteOverlay />

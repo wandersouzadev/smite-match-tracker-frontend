@@ -1,5 +1,6 @@
 .wrapper {
   margin-top: 7rem;
+  margin-left: 3px;
 
   @media (max-width: 800px) {
     display: none;
@@ -38,5 +39,10 @@
       opacity: 1;
       margin-left: 0;
     }
+  }
+
+  .show {
+    opacity: 1;
+    margin-left: 0;
   }
 }
