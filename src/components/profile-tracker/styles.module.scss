@@ -89,9 +89,13 @@
       width: 25px;
       height: 25px;
     }
+
+    &:hover {
+      background-color: $violet2;
+    }
   }
 
   .active {
-    background-color: $violet1;
+    background-color: $violet3;
   }
 }

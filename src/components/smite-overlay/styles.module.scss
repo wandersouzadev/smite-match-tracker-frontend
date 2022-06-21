@@ -3,12 +3,19 @@
   max-width: 800px;
   min-height: 400px;
   display: grid;
-  background-image: linear-gradient(-20deg, $violet1 0%, $violet4 100%);
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    $purple1 0,
+    #05111e 1px,
+    $purple1 0,
+    $purple1 50%
+  );
   grid-template-rows: 80px 1fr;
   grid-template-areas:
     "header"
     "main";
-  border: 3px solid #85784a;
+  border: 3px solid #9f9160;
 }
 
 .header {
@@ -20,19 +27,21 @@
   button {
     font-family: "Penumbra Flare";
     cursor: pointer;
-    color: #ada176;
+    color: $purple12;
     padding: 1rem;
-    border: 2px solid #85784a;
-    background-color: $violet3;
+    border: 2px solid #9f9160;
+    background-color: #05111e;
     outline: none;
+    transition: color 0.2s ease;
 
     &:hover {
-      background-color: $violet4;
+      color: #9f9160;
+      background-color: $violet2;
     }
   }
 
   .active {
-    background-color: $violet5;
+    background-color: $violet3;
   }
 }
 
@@ -52,7 +61,7 @@
 
   &:hover {
     svg {
-      color: #85784a;
+      color: #9f9160;
       transform: scale(1.2, 1.2);
     }
   }
