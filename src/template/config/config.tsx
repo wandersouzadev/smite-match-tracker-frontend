@@ -20,7 +20,7 @@ export const ConfigTemplate: React.FC = () => {
     resetSmiteFormData();
   };
 
-  const SmiteFormRender = useCallback(() => {
+  const SmiteForm = useCallback(() => {
     switch (step) {
       case 1:
         return <SmiteFormAccountSearch />;
@@ -44,10 +44,10 @@ export const ConfigTemplate: React.FC = () => {
       </aside>
       <main className={Styles.main}>
         <h1>Smite Match Tracker</h1>
-        <SmiteFormRender />
+        <SmiteForm />
       </main>
       <footer className={Styles.footer}>
-        <b>Smite Match Tracker v0.9.0</b>
+        <b>Smite Match Tracker v1.0.0</b>
         <a
           href="https://twitter.com/wandersouzadev"
           target="__blank"
