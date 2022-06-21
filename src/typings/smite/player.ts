@@ -145,5 +145,5 @@ export type SmitePlayer = {
   Wins: number;
   hz_gamer_tag: any;
   hz_player_name: string;
-  ret_msg: any;
+  ret_msg: string;
 };
