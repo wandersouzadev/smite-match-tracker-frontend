@@ -52,3 +52,21 @@
     }
   }
 }
+
+.private-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: $mauve12;
+
+    &:hover {
+      color: $mauve11;
+    }
+  }
+}

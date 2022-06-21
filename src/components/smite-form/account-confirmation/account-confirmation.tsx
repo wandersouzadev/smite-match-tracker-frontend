@@ -4,7 +4,7 @@ import { smiteFormDataState } from "@/recoil/atoms/smite-form-data";
 import { twitchAuthState } from "@/recoil/atoms/twitch-auth-data";
 import { twitchHelperState } from "@/recoil/atoms/twitch-helper";
 import { SmitePlayer } from "@/typings/smite/player";
-import { Check, X } from "phosphor-react";
+import { ArrowClockwise, Check, X } from "phosphor-react";
 import React from "react";
 import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
 import { SmiteFormError } from "../form-error";
@@ -53,6 +53,24 @@ export const SmiteFormAccountConfirmation: React.FC = () => {
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
+
+  if (data?.ret_msg?.includes("Player Privacy")) {
+    return (
+      <div className={Styles["private-profile"]}>
+        <p>
+          Error <strong>{smiteFormData.nameOrId}</strong> profile is private.
+        </p>
+        <button type="button">
+          <ArrowClockwise
+            size={32}
+            cursor="pointer"
+            onClick={resetSmiteFormData}
+          />
+        </button>
+      </div>
+    );
+  }
+
   if (isError) {
     return <SmiteFormError />;
   }
