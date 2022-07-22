@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export interface MatchData {
+export interface SmiteMatch {
   queueId: string;
   streamerId: string;
   teams: SmiteTeam[];
@@ -19,6 +19,6 @@ export interface SmiteTeam {
 }
 
 export const smiteMatchState = atom({
-  key: "TeamsData",
-  default: null as unknown as MatchData | null
+  key: "SmiteMatch",
+  default: null as unknown as SmiteMatch | null
 });

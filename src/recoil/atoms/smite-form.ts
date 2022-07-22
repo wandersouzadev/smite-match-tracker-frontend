@@ -1,13 +1,13 @@
 import { atom } from "recoil";
 
-interface SmiteFormData {
+interface SmiteForm {
   step?: number;
   platform?: string;
   nameOrId?: string;
 }
 
-export const smiteFormDataState = atom<SmiteFormData>({
-  key: "SmiteFormData",
+export const smiteFormState = atom<SmiteForm>({
+  key: "SmiteForm",
   default: {
     step: 0,
     platform: "",
