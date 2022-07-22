@@ -12,5 +12,6 @@ export enum SmiteGameMode {
   Under30Arena = 10195,
   Arena = 435,
   Assault = 445,
-  Slash = 10189
+  Slash = 10189,
+  MOTD = 434
 }
