@@ -1,7 +1,6 @@
 .wrapper {
-  position: relative;
-  max-width: 800px;
-  min-height: 400px;
+  width: 580px;
+  height: 380px;
   display: grid;
   background-size: 10px 10px;
   background-image: repeating-linear-gradient(
@@ -16,6 +15,13 @@
     "header"
     "main";
   border: 3px solid #9f9160;
+  position: absolute;
+
+  @media (max-width: 900px) {
+    height: 340px;
+    grid-template-rows: 50px 1fr;
+  }
+
 }
 
 .header {
@@ -28,7 +34,7 @@
     font-family: "Penumbra Flare";
     cursor: pointer;
     color: $purple12;
-    padding: 1rem;
+    padding: 0.5rem;
     border: 2px solid #9f9160;
     background-color: #05111e;
     outline: none;
@@ -75,3 +81,54 @@
 .logo {
   height: 50px;
 }
+
+.left {
+  top: 25vh;
+  left: 0;
+  @media (max-width: 900px) {
+    top: 0;
+  }
+}
+
+.right {
+  top: 25vh;
+  right: 5rem;
+  @media (max-width: 900px) {
+    top: 0;
+    right: 2rem;
+  }
+}
+
+.top-left {
+  top: 5rem;
+  left: 0;
+  @media (max-width: 900px) {
+    top: 0;
+  }
+}
+
+.top-right {
+  top: 5rem;
+  right: 5rem;
+  @media (max-width: 900px) {
+    top: 0;
+    right: 2rem;
+  }
+}
+
+.bottom-left {
+  bottom: 5rem;
+  left: 0;
+  @media (max-width: 900px) {
+    top: 0;
+  }
+}
+
+.bottom-right {
+  bottom: 5rem;
+  right: 5rem;
+  @media (max-width: 900px) {
+    top: 0;
+    right: 2rem;
+  }
+ }
