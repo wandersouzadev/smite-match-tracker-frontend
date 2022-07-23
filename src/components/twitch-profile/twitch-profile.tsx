@@ -1,11 +1,12 @@
 import { useEbs } from "@/hooks/use-ebs";
-import { useTwitchAuth } from "@/hooks/use-twitch-auth";
+import { twitchAuthState } from "@/recoil/atoms/twitch-auth";
 import { TwitchUser } from "@/typings/twitch/user";
 import React from "react";
+import { useRecoilValue } from "recoil";
 import Styles from "./styles.module.scss";
 
 export const TwitchProfile: React.FC = () => {
-  const twitchAuth = useTwitchAuth();
+  const twitchAuth = useRecoilValue(twitchAuthState);
 
   const { data, isLoading, isError } = useEbs<TwitchUser>({
     path: `/twitch/search/user?id=${twitchAuth?.channelId}`,
