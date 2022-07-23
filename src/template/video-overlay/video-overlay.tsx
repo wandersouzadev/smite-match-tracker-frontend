@@ -1,21 +1,52 @@
 import { SmiteOverlay } from "@/components/smite-overlay";
+import { useEbs } from "@/hooks/use-ebs";
+import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { useTwitchContext } from "@/hooks/use-twitch-context";
-import { appConfigState } from "@/recoil/atoms/config-state";
-import React from "react";
+import { appConfigState } from "@/recoil/atoms/app-config";
+import cx from "classnames";
+import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import Styles from "./styles.module.scss";
 
 export const OverlayTemplate: React.FC = () => {
+  const twitchAuth = useTwitchAuth();
+  const twitchContext = useTwitchContext();
   const [appConfig, setAppConfig] = useRecoilState(appConfigState);
 
-  const twitchContext = useTwitchContext();
+  const { data } = useEbs<{ position: any | null }>({
+    path: "/twitch/configuration/settings",
+    token: twitchContext?.game === "SMITE" ? twitchAuth?.token : undefined
+  });
+
+  useEffect(() => {
+    if (!data) {
+      return;
+    }
+
+    setAppConfig((oldValue) => {
+      return {
+        ...oldValue,
+        position: data.position
+      };
+    });
+  }, [data, setAppConfig]);
+
+  if (twitchContext?.game !== "SMITE") {
+    return <template />;
+  }
 
   return (
     <div className={Styles.wrapper}>
       {appConfig.isMinimized ? (
         <div
-          className={Styles["minimized-overlay"]}
-          onClick={() => setAppConfig({ isMinimized: false })}
+          className={cx(
+            Styles["minimized-overlay"],
+            appConfig?.position ? Styles[appConfig.position] : Styles.left,
+            twitchContext?.arePlayerControlsVisible ? Styles.active : undefined
+          )}
+          onClick={() =>
+            setAppConfig((oldValue) => ({ ...oldValue, isMinimized: false }))
+          }
           onKeyDown={() => {}}
           role="button"
           tabIndex={0}
@@ -26,7 +57,9 @@ export const OverlayTemplate: React.FC = () => {
             className={Styles["overlay-icon"]}
           />
           <strong
-            className={twitchContext?.arePlayerControlsVisible && Styles.show}
+            className={
+              twitchContext?.arePlayerControlsVisible ? Styles.show : undefined
+            }
           >
             MATCH TRACKER
           </strong>
