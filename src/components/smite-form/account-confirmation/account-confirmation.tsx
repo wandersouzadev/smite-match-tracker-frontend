@@ -1,27 +1,30 @@
 import { useEbs } from "@/hooks/use-ebs";
-import { smiteAccountState } from "@/recoil/atoms/smite-context-account";
-import { smiteFormDataState } from "@/recoil/atoms/smite-form-data";
-import { twitchAuthState } from "@/recoil/atoms/twitch-auth-data";
+import { smiteFormState } from "@/recoil/atoms/smite-form";
+import { twitchAuthState } from "@/recoil/atoms/twitch-auth";
+import { broadcasterSegmentState } from "@/recoil/atoms/twitch-broadcaster-segment";
 import { twitchHelperState } from "@/recoil/atoms/twitch-helper";
 import { SmitePlayer } from "@/typings/smite/player";
 import { ArrowClockwise, Check, X } from "phosphor-react";
 import React from "react";
 import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
+import { SpinnerCircular } from "spinners-react";
 import { SmiteFormError } from "../form-error";
 import Styles from "./styles.module.scss";
 
 export const SmiteFormAccountConfirmation: React.FC = () => {
   const twitchHelper = useRecoilValue(twitchHelperState);
-  const twitchAuthData = useRecoilValue(twitchAuthState);
-  const [smiteAccount, setSmiteAccount] = useRecoilState(smiteAccountState);
-  const smiteFormData = useRecoilValue(smiteFormDataState);
-  const resetSmiteFormData = useResetRecoilState(smiteFormDataState);
+  const twitchAuth = useRecoilValue(twitchAuthState);
+  const [broadcasterSegment, setBroadcasterSegment] = useRecoilState(
+    broadcasterSegmentState
+  );
+  const smiteFormData = useRecoilValue(smiteFormState);
+  const resetSmiteFormData = useResetRecoilState(smiteFormState);
 
   const { data, isLoading, isError } = useEbs<SmitePlayer>({
     path: `/smite/player?account_name=${smiteFormData.nameOrId}${
       smiteFormData.platform ? `&portal_id=${smiteFormData.platform}` : ""
     }`,
-    token: twitchAuthData?.token
+    token: twitchAuth?.token
   });
 
   const handleDiscardAccount = () => {
@@ -35,24 +38,22 @@ export const SmiteFormAccountConfirmation: React.FC = () => {
     const contextAccount = {
       Id: data.Id,
       Platform: data.Platform,
-      hz_player_name: data.hz_player_name
+      hz_player_name: data.hz_player_name,
+      hz_gamer_tag: data.hz_gamer_tag
     };
-    const accounts = Object.assign([], smiteAccount);
+    const smiteAccounts = Object.assign([], broadcasterSegment);
 
-    accounts.push(contextAccount);
-    setSmiteAccount(accounts);
+    smiteAccounts?.push(contextAccount);
+
+    setBroadcasterSegment(smiteAccounts);
 
     twitchHelper?.configuration.set(
       "broadcaster",
-      "smite_accounts",
-      JSON.stringify(accounts)
+      process.env.BROADCASTER_SEGMENT_VERSION!,
+      JSON.stringify(smiteAccounts)
     );
     resetSmiteFormData();
   };
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
 
   if (data?.ret_msg?.includes("Player Privacy")) {
     return (
@@ -71,8 +72,20 @@ export const SmiteFormAccountConfirmation: React.FC = () => {
     );
   }
 
+  if (isLoading) {
+    return (
+      <div className={Styles.loading}>
+        <SpinnerCircular color="hsl(250, 51.8%, 51.2%)" />
+      </div>
+    );
+  }
+
   if (isError) {
-    return <SmiteFormError />;
+    return (
+      <div style={{ textAlign: "center" }}>
+        <SmiteFormError />
+      </div>
+    );
   }
 
   return (
