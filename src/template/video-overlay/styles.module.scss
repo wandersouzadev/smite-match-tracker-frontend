@@ -1,37 +1,53 @@
 .wrapper {
-  margin-top: 7rem;
-  margin-left: 3px;
-
-  @media (max-width: 800px) {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  @media (max-width: 599px) {
     display: none;
-  }
-
-  @media (max-height: 600px) {
-    margin-top: 2rem;
   }
 }
 
 .minimized-overlay {
   position: absolute;
-  top: 60%;
-
   cursor: pointer;
   font-family: "Penumbra Flare";
-  color: #85784a;
-  text-shadow: 1px 1px 1px black;
+  color: #ffffff;
   width: max-content;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 
+  .overlay-icon {
+    height: 40px;
+  }
+
   strong {
     font-size: 0.7rem;
     opacity: 0;
-    margin-left: -50px;
-    transition: all ease-in-out 0.2s;
+    transition: margin ease 0.2s;
   }
-  .overlay-icon {
-    height: 40px;
+
+
+  .show {
+    opacity: 1;
+    margin: 0;
+  }
+}
+
+.active {
+  img, strong {
+    filter: drop-shadow(1px 1px 0 black) 
+          drop-shadow(-1px -1px 0 black);
+  }
+}
+
+
+.left {
+  top: 50vh;
+  left: 4px;
+
+  strong {
+    margin-left: -50px;
   }
 
   &:hover {
@@ -40,9 +56,86 @@
       margin-left: 0;
     }
   }
+}
 
-  .show {
-    opacity: 1;
-    margin-left: 0;
+.right {
+  flex-direction: row-reverse;
+  top: 50vh;
+  right: 5rem;
+
+  strong {
+    margin-right: -50px;
+  }
+
+  &:hover {
+    strong {
+      opacity: 1;
+      margin-right: 0;
+    }
+  }
+}
+
+.top-left {
+  top: 5rem;
+  left: 4px;
+
+  strong {
+    margin-left: -50px;
+  }
+
+  &:hover {
+    strong {
+      opacity: 1;
+      margin-left: 0;
+    }
+  }
+}
+
+.top-right {
+  flex-direction: row-reverse;
+  top: 5rem;
+  right: 5rem;
+
+  strong {
+    margin-right: -50px;
+  }
+
+  &:hover {
+    strong {
+      opacity: 1;
+      margin-right: 0;
+    }
+  }
+}
+.bottom-left {
+  bottom: 5rem;
+  left: 4px;
+
+  strong {
+    margin-left: -50px;
+  }
+
+  &:hover {
+    strong {
+      opacity: 1;
+      margin-left: 0;
+    }
+  }
+}
+
+.bottom-right {
+  flex-direction: row-reverse;
+  bottom: 5rem;
+  right: 5rem;
+
+  strong {
+    margin-right: -50px;
+  }
+
+  &:hover {
+    strong {
+      opacity: 1;
+      margin-right: 0;
+    }
   }
 }
