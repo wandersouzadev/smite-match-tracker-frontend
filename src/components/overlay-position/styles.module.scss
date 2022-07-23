@@ -1,0 +1,38 @@
+.wrapper {
+  position: relative;
+  border: solid 1px $violet8;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  justify-content: space-between;
+  align-content: space-between;
+  padding: 2px;
+  min-height: 100px;
+
+  @media (min-width: 699px) {
+    min-height: 200px;
+  }
+
+  button {
+    text-align: center;
+    outline: none;
+    color: $violet12;
+    border: solid 0.1px $violet8;
+    height: fit-content;
+    width: 100px;
+    cursor: pointer;
+    background-color: transparent;
+    &:hover {
+      background-color: $violet4;
+    }
+  }
+}
+
+.active {
+  background-color: $violet5 !important;
+  border-color: $violet7 !important;
+
+  &:hover {
+    background-color: $violet6 !important;
+  }
+}
