@@ -1,13 +1,13 @@
 import { PlatformIcon } from "@/components/platform-icon";
-import { smiteFormDataState } from "@/recoil/atoms/smite-form-data";
+import { smiteFormState } from "@/recoil/atoms/smite-form";
 import React from "react";
 import { useSetRecoilState } from "recoil";
 import Styles from "./styles.module.scss";
 
 export const SmiteFormPlatformSelect: React.FC = () => {
-  const setSmiteFormInput = useSetRecoilState(smiteFormDataState);
+  const setSmiteForm = useSetRecoilState(smiteFormState);
   const handlePlatformSelect = (platformId?: string) => {
-    setSmiteFormInput({ platform: platformId, step: 1 });
+    setSmiteForm({ platform: platformId, step: 1 });
   };
   return (
     <div className={Styles["platform-select"]}>
