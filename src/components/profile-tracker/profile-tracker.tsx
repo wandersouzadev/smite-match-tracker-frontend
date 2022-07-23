@@ -8,7 +8,7 @@ import { useEbs } from "@/hooks/use-ebs";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { GetPlayer } from "@/typings/smite/get-player";
 import cx from "classnames";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Error } from "../common/error";
 import { Loading } from "../common/loading";
 import Styles from "./styles.module.scss";
@@ -17,6 +17,7 @@ type InputType = "keyboard" | "controller";
 
 export const ProfileTracker: React.FC = () => {
   const [profileInput, setProfileInput] = useState<InputType>("keyboard");
+  const imgRef = useRef<HTMLImageElement>(null);
   const handleToggleInput = (input: InputType) => {
     setProfileInput(input);
   };
@@ -30,6 +31,11 @@ export const ProfileTracker: React.FC = () => {
     }
   });
 
+  const handleImgError = () => {
+    if (imgRef.current?.src) {
+      imgRef.current.src = "Icons/Random.webp";
+    }
+  };
   if (isLoading) {
     return <Loading />;
   }
@@ -59,6 +65,8 @@ export const ProfileTracker: React.FC = () => {
         <div className={Styles["profile-image"]}>
           <img
             src={loadProfileAvatar(data.Avatar_URL) || "Icons/Random.webp"}
+            ref={imgRef}
+            onError={handleImgError}
             alt="icon"
           />
         </div>
