@@ -4,11 +4,11 @@
   display: flex;
   flex-direction: column;
   padding-top: 10px;
-  gap: 2rem;
   overflow: hidden;
-  max-height: 100vh;
+  min-height: 100vh;
+  overflow-y: auto;
   @media (min-width: 699px) {
-    height: 700px;
+    max-height: 700px;
     padding-top: initial;
     display: grid;
     grid-template-columns: minmax(350px, 20vw) 1fr;
@@ -28,7 +28,7 @@
   margin: 0 2px;
 }
 
-.smite-accounts {
+.content {
   h2 {
     text-align: center;
     font-family: "Ubuntu", sans-serif;
@@ -44,19 +44,16 @@
   }
 }
 
-.twitch-profile {
-}
-
 .main {
   grid-area: main;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 2rem;
   flex-grow: 1;
+  overflow-y: auto;
 
   h1 {
+    text-align: center;
     font-family: "Squada One";
     text-transform: uppercase;
     text-shadow: 1px 1px 0 $purple8;
@@ -68,6 +65,8 @@
   }
 
   @media (min-width: 699px) {
+    justify-content: center;
+    align-items: center;
     background-color: $mauve2;
   }
 }
