@@ -1,6 +1,7 @@
-import { appConfigState } from "@/recoil/atoms/config-state";
+import { appConfigState } from "@/recoil/atoms/app-config";
+import cx from "classnames";
 import { X } from "phosphor-react";
-import React, { useCallback } from "react";
+import React from "react";
 import { useRecoilState } from "recoil";
 import { MatchTracker } from "../match-tracker";
 import { ProfileTracker } from "../profile-tracker";
@@ -9,18 +10,16 @@ import Styles from "./styles.module.scss";
 export const SmiteOverlay: React.FC = () => {
   const [appConfig, setAppConfig] = useRecoilState(appConfigState);
 
-  const OverlayContent = useCallback(() => {
-    if (appConfig.overlayTab === 2) {
-      return <ProfileTracker />;
-    }
-    return <MatchTracker />;
-  }, [appConfig]);
   return (
-    <div className={Styles.wrapper}>
+    <div
+      className={cx(Styles.wrapper, Styles[appConfig.position || Styles.left])}
+    >
       <button
         type="button"
         className={Styles.close}
-        onClick={() => setAppConfig({ isMinimized: true })}
+        onClick={() =>
+          setAppConfig((oldValue) => ({ ...oldValue, isMinimized: true }))
+        }
       >
         <X size={22} weight="fill" />
       </button>
@@ -28,7 +27,9 @@ export const SmiteOverlay: React.FC = () => {
         <button
           type="button"
           className={appConfig?.overlayTab === 1 ? Styles.active : null}
-          onClick={() => setAppConfig({ overlayTab: 1 })}
+          onClick={() =>
+            setAppConfig((oldValue) => ({ ...oldValue, overlayTab: 1 }))
+          }
         >
           Match Tracker
         </button>
@@ -40,13 +41,15 @@ export const SmiteOverlay: React.FC = () => {
         <button
           type="button"
           className={appConfig?.overlayTab === 2 ? Styles.active : null}
-          onClick={() => setAppConfig({ overlayTab: 2 })}
+          onClick={() =>
+            setAppConfig((oldValue) => ({ ...oldValue, overlayTab: 2 }))
+          }
         >
           Profile Tracker
         </button>
       </header>
       <main className={Styles.main}>
-        <OverlayContent />
+        {appConfig.overlayTab === 2 ? <ProfileTracker /> : <MatchTracker />}
       </main>
     </div>
   );
