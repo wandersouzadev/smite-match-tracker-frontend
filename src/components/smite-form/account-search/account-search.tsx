@@ -1,11 +1,11 @@
-import { smiteFormDataState } from "@/recoil/atoms/smite-form-data";
+import { smiteFormState } from "@/recoil/atoms/smite-form";
 import { MagnifyingGlass } from "phosphor-react";
 import React, { useRef } from "react";
 import { useRecoilState } from "recoil";
 import Styles from "./styles.module.scss";
 
 export const SmiteFormAccountSearch: React.FC = () => {
-  const [smiteFormData, setSmiteFormData] = useRecoilState(smiteFormDataState);
+  const [smiteForm, setSmiteForm] = useRecoilState(smiteFormState);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -14,8 +14,8 @@ export const SmiteFormAccountSearch: React.FC = () => {
     if (!inputRef.current?.value) {
       return;
     }
-    setSmiteFormData({
-      ...smiteFormData,
+    setSmiteForm({
+      ...smiteForm,
       nameOrId: inputRef.current!.value,
       step: 2
     });
@@ -38,7 +38,7 @@ export const SmiteFormAccountSearch: React.FC = () => {
   return (
     <form className={Styles.form} onSubmit={handleSmiteSearch}>
       <label htmlFor="smite-search">
-        {handleCustomPlatformLabel(smiteFormData.platform!)}
+        {handleCustomPlatformLabel(smiteForm.platform!)}
       </label>
       <div className={Styles.control}>
         <input

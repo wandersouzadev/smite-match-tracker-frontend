@@ -1,11 +1,11 @@
-import { smiteFormDataState } from "@/recoil/atoms/smite-form-data";
+import { smiteFormState } from "@/recoil/atoms/smite-form";
 import { ArrowClockwise } from "phosphor-react";
 import React from "react";
 import { useResetRecoilState } from "recoil";
 import Styles from "./styles.module.scss";
 
 export const SmiteFormError: React.FC = () => {
-  const setSmiteForm = useResetRecoilState(smiteFormDataState);
+  const resetSmiteForm = useResetRecoilState(smiteFormState);
 
   return (
     <div className={Styles.wrapper}>
@@ -17,7 +17,7 @@ export const SmiteFormError: React.FC = () => {
         <ArrowClockwise
           size={32}
           cursor="pointer"
-          onClick={() => setSmiteForm()}
+          onClick={() => resetSmiteForm()}
         />
       </button>
     </div>
