@@ -1,13 +1,4 @@
 .wrapper {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  @media (max-width: 599px) {
-    display: none;
-  }
-}
-
-.minimized-overlay {
   position: absolute;
   cursor: pointer;
   font-family: "Penumbra Flare";
@@ -27,7 +18,6 @@
     transition: margin ease 0.2s;
   }
 
-
   .show {
     opacity: 1;
     margin: 0;
@@ -35,12 +25,11 @@
 }
 
 .active {
-  img, strong {
-    filter: drop-shadow(1px 1px 0 black) 
-          drop-shadow(-1px -1px 0 black);
+  img,
+  strong {
+    filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
   }
 }
-
 
 .left {
   top: 50vh;
