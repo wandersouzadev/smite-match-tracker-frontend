@@ -9,7 +9,7 @@ import { smiteFormState } from "@/recoil/atoms/smite-form";
 import { ArrowClockwise, TwitterLogo } from "phosphor-react";
 import React from "react";
 import { useRecoilValue, useResetRecoilState } from "recoil";
-import Styles from "./styles.module.scss";
+import Styles from "./config.module.scss";
 
 export const ConfigTemplate: React.FC = () => {
   const { step } = useRecoilValue(smiteFormState);
