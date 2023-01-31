@@ -9,8 +9,8 @@ import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { GetPlayer } from "@/typings/smite/get-player";
 import cx from "classnames";
 import React, { useRef, useState } from "react";
-import { Error } from "../common/error";
-import { Loading } from "../common/loading";
+import { Error } from "../shared/error";
+import { Loading } from "../shared/loading";
 import Styles from "./styles.module.scss";
 
 type InputType = "keyboard" | "controller";

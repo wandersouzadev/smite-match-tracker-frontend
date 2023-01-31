@@ -8,7 +8,7 @@ import { ArrowUp, Trash } from "phosphor-react";
 import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { SpinnerCircular } from "spinners-react";
-import { Error } from "../common/error";
+import { Error } from "../shared/error";
 import Styles from "./styles.module.scss";
 
 export const SmiteAccounts: React.FC = () => {

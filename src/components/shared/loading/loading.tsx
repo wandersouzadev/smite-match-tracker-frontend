@@ -1,6 +1,6 @@
 import React from "react";
 import { SpinnerDiamond } from "spinners-react";
-import Styles from "./styles.module.scss";
+import Styles from "./loading.module.scss";
 
 export const Loading: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ export const Loading: React.FC = () => {
         alignItems: "center"
       }}
     >
-      <SpinnerDiamond color="#ada176" />
+      <SpinnerDiamond className={Styles.spinner} />
     </div>
   );
 };

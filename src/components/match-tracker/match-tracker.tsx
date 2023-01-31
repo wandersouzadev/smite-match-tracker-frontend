@@ -1,11 +1,11 @@
+import { Error } from "@/components/shared/error";
+import { Loading } from "@/components/shared/loading";
 import { SmiteGameModeList, smiteQueueHelper } from "@/helpers/queue";
 import { useEbs } from "@/hooks/use-ebs";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { SmiteLiveMatch } from "@/typings/smite/live-match";
 import React from "react";
 import { SpinnerDiamond } from "spinners-react";
-import { Error } from "../common/error";
-import { Loading } from "../common/loading";
 import Styles from "./styles.module.scss";
 import { Team } from "./team";
 
