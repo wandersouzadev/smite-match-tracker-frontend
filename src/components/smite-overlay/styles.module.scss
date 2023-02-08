@@ -1,6 +1,4 @@
 .wrapper {
-  width: 580px;
-  height: 380px;
   display: grid;
   background-size: 10px 10px;
   background-image: repeating-linear-gradient(
@@ -14,14 +12,15 @@
   grid-template-areas:
     "header"
     "main";
-  border: 3px solid #9f9160;
-  position: absolute;
+
+  overflow: hidden;
+
+  animation: AnimateOpen forwards 0.5s;
 
   @media (max-width: 900px) {
     height: 340px;
     grid-template-rows: 50px 1fr;
   }
-
 }
 
 .header {
@@ -35,7 +34,8 @@
     cursor: pointer;
     color: $purple12;
     padding: 0.5rem;
-    border: 2px solid #9f9160;
+    border: none;
+    border-bottom: 2px solid #9f9160;
     background-color: #05111e;
     outline: none;
     transition: color 0.2s ease;
@@ -48,6 +48,10 @@
 
   .active {
     background-color: $violet3;
+  }
+
+  .disabled {
+    cursor: no-drop;
   }
 }
 
@@ -82,53 +86,14 @@
   height: 50px;
 }
 
-.left {
-  top: 25vh;
-  left: 0;
-  @media (max-width: 900px) {
-    top: 0;
+@keyframes AnimateOpen {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+
+  100% {
+    width: 580px;
+    height: 380px;
   }
 }
-
-.right {
-  top: 25vh;
-  right: 5rem;
-  @media (max-width: 900px) {
-    top: 0;
-    right: 2rem;
-  }
-}
-
-.top-left {
-  top: 5rem;
-  left: 0;
-  @media (max-width: 900px) {
-    top: 0;
-  }
-}
-
-.top-right {
-  top: 5rem;
-  right: 5rem;
-  @media (max-width: 900px) {
-    top: 0;
-    right: 2rem;
-  }
-}
-
-.bottom-left {
-  bottom: 5rem;
-  left: 0;
-  @media (max-width: 900px) {
-    top: 0;
-  }
-}
-
-.bottom-right {
-  bottom: 5rem;
-  right: 5rem;
-  @media (max-width: 900px) {
-    top: 0;
-    right: 2rem;
-  }
- }
