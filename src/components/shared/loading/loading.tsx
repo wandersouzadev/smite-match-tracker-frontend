@@ -1,19 +1,10 @@
 import React from "react";
-import { SpinnerDiamond } from "spinners-react";
 import Styles from "./loading.module.scss";
 
-export const Loading: React.FC = () => {
-  return (
-    <div
-      className={Styles.wrapper}
-      style={{
-        display: "flex",
-        width: "100%",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <SpinnerDiamond className={Styles.spinner} />
-    </div>
-  );
+interface Props {
+  children: React.ReactNode;
+}
+
+export const Loading: React.FC<Props> = ({ children }) => {
+  return <div className={Styles.wrapper}>{children}</div>;
 };
