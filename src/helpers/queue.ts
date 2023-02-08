@@ -3,51 +3,72 @@ import { SmiteGameMode } from "./game-mode";
 export const smiteQueueHelper = (queueId: string | number | undefined) => {
   switch (queueId) {
     // CONQUEST //
+    case 426:
     case "426":
     case "10193":
+    case 10193:
       return "Normal Conquest";
+    case 451:
     case "451":
-      return "Ranked Conquest Season 9";
+      return "Ranked Conquest";
+    case 504:
     case "504":
-      return "Ranked Conquest Season 9 Controller";
+      return "Ranked Conquest Controller";
     // ---- //
 
     // JOUST //
+    case 448:
     case "448":
+    case 10197:
     case "10197":
       return "Normal Joust";
+    case 450:
     case "450":
-      return "Ranked Joust Season 9";
+      return "Ranked Joust";
+    case 503:
     case "503":
-      return "Ranked Joust Season 9 Controller";
+      return "Ranked Joust Controller";
 
     // ---- //
 
     // DUEL //
+    case 440:
     case "440":
-      return "Ranked Duel Season 9";
+      return "Ranked Duel";
+    case 502:
     case "502":
-      return "Ranked Duel Season 9 Controller";
+      return "Ranked Duel Controller";
     //
 
     // ARENA //
+    case 435:
     case "435":
+    case 10195:
     case "10195":
       return "Normal Arena";
     // ---- //
 
     // ASSAULT //
 
+    case 445:
     case "445":
       return "Normal Assault";
     // ---- //
 
     // SLASH //
+    case 10189:
     case "10189":
       return "Normal Slash";
     // ---- ///
 
+    // SLASH //
+    case 438:
+    case "438":
+      return "Season 7 Arena";
+    // ---- ///
+
     // MOTD //
+    case 434:
     case "434":
       return "MOTD";
     // ---- //
