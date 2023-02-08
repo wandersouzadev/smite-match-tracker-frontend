@@ -2,19 +2,18 @@ import { useTwitchContext } from "@/hooks/use-twitch-context";
 import { appConfigState } from "@/recoil/atoms/app-config";
 import cx from "classnames";
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import Styles from "./smite-overlay-minimized.module.scss";
 
 export const SmiteOverlayMinimized: React.FC = () => {
+  const setAppConfig = useSetRecoilState(appConfigState);
   const twitchContext = useTwitchContext();
-  const [appConfig, setAppConfig] = useRecoilState(appConfigState);
 
   return (
     <div
       className={cx(
         Styles.wrapper,
-        appConfig?.position ? Styles[appConfig.position] : Styles.left,
-        twitchContext?.arePlayerControlsVisible ? Styles.active : undefined
+        twitchContext?.arePlayerControlsVisible && Styles["controls-active"]
       )}
       onClick={() =>
         setAppConfig((oldValue) => ({ ...oldValue, isMinimized: false }))
@@ -23,18 +22,9 @@ export const SmiteOverlayMinimized: React.FC = () => {
       role="button"
       tabIndex={0}
     >
-      <img
-        src="overlay-logo.png"
-        alt="logo"
-        className={Styles["overlay-icon"]}
-      />
-      <strong
-        className={
-          twitchContext?.arePlayerControlsVisible ? Styles.show : undefined
-        }
-      >
-        MATCH TRACKER
-      </strong>
+      <div className={Styles.logo}>
+        <img src="extension-logo.png" alt="logo" />
+      </div>
     </div>
   );
 };

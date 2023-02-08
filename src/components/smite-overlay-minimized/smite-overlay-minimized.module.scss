@@ -1,130 +1,39 @@
 .wrapper {
-  position: absolute;
+  position: relative;
   cursor: pointer;
-  font-family: "Penumbra Flare";
   color: #ffffff;
-  width: max-content;
+  background-color: rgba(0, 0, 0, 0.633);
+  height: 52px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  overflow: hidden;
+  transition: all ease-in 3s;
+}
 
-  .overlay-icon {
-    height: 40px;
-  }
+.logo {
+  object-fit: contain;
+  z-index: 100;
 
-  strong {
-    font-size: 0.7rem;
-    opacity: 0;
-    transition: margin ease 0.2s;
-  }
-
-  .show {
-    opacity: 1;
-    margin: 0;
+  img {
+    height: 42px;
+    filter: brightness(0) saturate(100%) invert(13%) sepia(95%) saturate(7408%)
+      hue-rotate(285deg) brightness(90%) contrast(103%);
   }
 }
 
-.active {
-  img,
-  strong {
-    filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+.controls-active {
+  img {
+    animation: ControlsActiveAnimation 5s forwards;
   }
 }
 
-.left {
-  top: 50vh;
-  left: 4px;
-
-  strong {
-    margin-left: -50px;
+@keyframes ControlsActiveAnimation {
+  0% {
+    filter: brightness(0) saturate(100%) invert(64%) sepia(35%) saturate(378%)
+      hue-rotate(9deg) brightness(83%) contrast(92%);
   }
-
-  &:hover {
-    strong {
-      opacity: 1;
-      margin-left: 0;
-    }
-  }
-}
-
-.right {
-  flex-direction: row-reverse;
-  top: 50vh;
-  right: 5rem;
-
-  strong {
-    margin-right: -50px;
-  }
-
-  &:hover {
-    strong {
-      opacity: 1;
-      margin-right: 0;
-    }
-  }
-}
-
-.top-left {
-  top: 5rem;
-  left: 4px;
-
-  strong {
-    margin-left: -50px;
-  }
-
-  &:hover {
-    strong {
-      opacity: 1;
-      margin-left: 0;
-    }
-  }
-}
-
-.top-right {
-  flex-direction: row-reverse;
-  top: 5rem;
-  right: 5rem;
-
-  strong {
-    margin-right: -50px;
-  }
-
-  &:hover {
-    strong {
-      opacity: 1;
-      margin-right: 0;
-    }
-  }
-}
-.bottom-left {
-  bottom: 5rem;
-  left: 4px;
-
-  strong {
-    margin-left: -50px;
-  }
-
-  &:hover {
-    strong {
-      opacity: 1;
-      margin-left: 0;
-    }
-  }
-}
-
-.bottom-right {
-  flex-direction: row-reverse;
-  bottom: 5rem;
-  right: 5rem;
-
-  strong {
-    margin-right: -50px;
-  }
-
-  &:hover {
-    strong {
-      opacity: 1;
-      margin-right: 0;
-    }
+  100% {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(95%) saturate(7408%)
+      hue-rotate(285deg) brightness(90%) contrast(103%);
   }
 }
