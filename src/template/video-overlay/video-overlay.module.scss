@@ -1,8 +1,97 @@
 .wrapper {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  @media (max-width: 599px) {
+  position: absolute;
+  display: flex;
+  max-height: 380px;
+
+  .open-close-toggle {
+    display: flex;
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: white;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+
+  @media (max-width: 699px) {
     display: none;
   }
+}
+
+.left-side {
+  flex-direction: row;
+}
+
+.right-side {
+  flex-direction: row-reverse;
+}
+
+.left {
+  top: 50vh;
+  left: 4px;
+}
+
+.right {
+  top: 25vh;
+  right: 5rem;
+}
+
+.top-left {
+  top: 5rem;
+  left: 4px;
+}
+
+.top-right {
+  top: 5rem;
+  right: 5rem;
+}
+
+.bottom-left {
+  bottom: 5rem;
+  left: 4px;
+}
+
+.bottom-right {
+  bottom: 5rem;
+  right: 5rem;
+}
+
+.left-maximized {
+  transform: perspective(600px) rotateY(5deg);
+  left: 1rem;
+  .open-close-toggle {
+    max-height: 380px;
+    flex-direction: column;
+    align-self: end;
+
+    button {
+      height: 100px;
+      width: 25px;
+    }
+  }
+}
+
+.right-maximized {
+  transform: perspective(600px) rotateY(-5deg);
+  right: 5rem;
+  .open-close-toggle {
+    max-height: 380px;
+    flex-direction: column;
+    align-self: end;
+    margin-left: 0.5rem;
+
+    button {
+      height: 100px;
+      width: 25px;
+    }
+  }
+}
+
+.middle-maximized {
+  top: 25vh;
 }
