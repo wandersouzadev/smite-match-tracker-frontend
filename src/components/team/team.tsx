@@ -5,7 +5,7 @@ import { SmiteMatchPlayer } from "@/typings/smite/match-player";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import { SpinnerRoundFilled } from "spinners-react";
-import Styles from "./styles.module.scss";
+import Styles from "./team.modules.scss";
 
 interface Props {
   players: SmiteMatchPlayer[];
@@ -42,21 +42,17 @@ export const Team: React.FC<Props> = ({
               <img src={cdnGodsImgLoad(player.GodName)} alt={player.GodName} />
             </td>
             <td title="Player name" className={Styles["content-name"]}>
-              <p>
-                <small>{player.GodName}</small>
-              </p>
-              <p>
-                <strong
-                  className={classNames(
-                    streamerAccountId === player.playerId
-                      ? Styles["streamer-player"]
-                      : {},
-                    player.playerName.length > 13 && Styles.small
-                  )}
-                >
-                  {player.playerName}
-                </strong>
-              </p>
+              <strong
+                className={classNames(
+                  streamerAccountId === player.playerId
+                    ? Styles["streamer-player"]
+                    : {},
+                  player.playerName.length > 13 && Styles.small,
+                  Styles["player-name"]
+                )}
+              >
+                {player.playerName || "-"}
+              </strong>
             </td>
             <td title="MMR" className={Styles["content-mmr"]}>
               {player.Rank_Stat && player.Rank_Stat !== 1500 ? (
@@ -75,7 +71,8 @@ export const Team: React.FC<Props> = ({
               )}
             </td>
             <td title="Wins/Losses" className={Styles["content-winlose"]}>
-              {player.Rank_Stat ? (
+              {player.Rank_Stat &&
+              (player.tierWins >= 1 || player.tierLosses >= 1) ? (
                 <>
                   <p>
                     <strong>Wins:</strong> {player.tierWins}
@@ -85,14 +82,7 @@ export const Team: React.FC<Props> = ({
                   </p>
                 </>
               ) : (
-                <>
-                  <p>
-                    <strong>Wins:</strong> 0
-                  </p>
-                  <p>
-                    <strong>Losses:</strong> 0
-                  </p>
-                </>
+                <> </>
               )}
             </td>
           </tr>
