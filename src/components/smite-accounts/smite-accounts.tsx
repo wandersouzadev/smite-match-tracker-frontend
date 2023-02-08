@@ -1,4 +1,4 @@
-import { PlatformIcon } from "@/components/platform-icon";
+import { PlatformIcon } from "@/components/shared/platform-icon";
 import { useEbs } from "@/hooks/use-ebs";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { broadcasterSegmentState } from "@/recoil/atoms/twitch-broadcaster-segment";

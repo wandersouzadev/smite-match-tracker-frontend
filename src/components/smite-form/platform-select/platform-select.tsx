@@ -1,4 +1,4 @@
-import { PlatformIcon } from "@/components/platform-icon";
+import { PlatformIcon } from "@/components/shared/platform-icon";
 import { smiteFormState } from "@/recoil/atoms/smite-form";
 import React from "react";
 import { useSetRecoilState } from "recoil";
