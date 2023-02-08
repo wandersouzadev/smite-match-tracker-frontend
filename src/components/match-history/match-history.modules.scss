@@ -1,0 +1,35 @@
+.wrapper {
+  max-height: 320px;
+  overflow-y: scroll;
+  width: 100%;
+  font-family: "Penumbra Half Serif";
+
+  table {
+    margin: 0 auto;
+  }
+}
+
+.small {
+  font-size: 0.5rem;
+  padding: 0 2px;
+}
+
+.big {
+  font-size: 1.2rem;
+}
+
+.win {
+  background-color: rgba(12, 248, 0, 0.705);
+}
+
+.lose {
+  background-color: rgba(255, 0, 0, 0.705);
+}
+
+.icon {
+  vertical-align: bottom;
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+  padding: 1px;
+}
