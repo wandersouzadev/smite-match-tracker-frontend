@@ -1,0 +1,37 @@
+.wrapper {
+  margin: 0 auto;
+  color: #f4c930;
+}
+
+.table {
+  tr {
+  }
+
+  td {
+    position: relative;
+    img {
+      object-fit: cover;
+    }
+  }
+}
+
+.top {
+  position: absolute;
+  inset: 1px 25%;
+  text-align: center;
+  z-index: 10;
+  font-size: 0.7rem;
+  padding: 1px;
+  text-shadow: 1px 1px black;
+}
+
+.bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  font-size: 0.7rem;
+  padding: 1px;
+
+  text-shadow: 1px 1px black;
+}
