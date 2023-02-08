@@ -1,8 +1,16 @@
-export const cdnGodsImgLoad = (smiteGodName: string) => {
+export const cdnGodsImgLoad = (
+  smiteGodName: string,
+  options?: { replaceUnderscore: boolean }
+) => {
   let godName = smiteGodName
     .toLocaleLowerCase()
     .replaceAll(" ", "-")
     .replaceAll("'", "");
+
+  if (options?.replaceUnderscore) {
+    godName = godName.replaceAll("_", "-");
+  }
+
   const godSkinName = smiteGodName
     .toLocaleLowerCase()
     .replaceAll(" ", "_")
