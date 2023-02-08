@@ -59,7 +59,7 @@ export const SmiteFormAccountConfirmation: React.FC = () => {
     return (
       <div className={Styles["private-profile"]}>
         <p>
-          Error <strong>{smiteFormData.nameOrId}</strong> profile is private.
+          Error <strong>{smiteFormData.nameOrId}</strong> has a private profile.
         </p>
         <button type="button">
           <ArrowClockwise
