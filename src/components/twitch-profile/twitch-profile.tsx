@@ -3,6 +3,9 @@ import { twitchAuthState } from "@/recoil/atoms/twitch-auth";
 import { TwitchUser } from "@/typings/twitch/user";
 import React from "react";
 import { useRecoilValue } from "recoil";
+import { SpinnerCircular } from "spinners-react";
+import { Error } from "../shared/error";
+import { Loading } from "../shared/loading";
 import Styles from "./styles.module.scss";
 
 export const TwitchProfile: React.FC = () => {
@@ -14,11 +17,15 @@ export const TwitchProfile: React.FC = () => {
   });
 
   if (isLoading) {
-    return <>Loading...</>;
+    return (
+      <Loading>
+        <SpinnerCircular color="#443592" />
+      </Loading>
+    );
   }
 
   if (isError) {
-    return <>Error</>;
+    return <Error />;
   }
 
   return (

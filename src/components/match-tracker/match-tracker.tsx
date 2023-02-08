@@ -1,5 +1,6 @@
 import { Error } from "@/components/shared/error";
 import { Loading } from "@/components/shared/loading";
+import { Team } from "@/components/team";
 import { SmiteGameModeList, smiteQueueHelper } from "@/helpers/queue";
 import { useEbs } from "@/hooks/use-ebs";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
@@ -7,7 +8,6 @@ import { SmiteLiveMatch } from "@/typings/smite/live-match";
 import React from "react";
 import { SpinnerDiamond } from "spinners-react";
 import Styles from "./styles.module.scss";
-import { Team } from "./team";
 
 export const MatchTracker: React.FC = () => {
   const twitchAuth = useTwitchAuth();
@@ -16,12 +16,17 @@ export const MatchTracker: React.FC = () => {
     path: "/smite/live-match",
     token: twitchAuth?.token,
     config: {
-      revalidateOnFocus: true
+      revalidateOnFocus: true,
+      refreshInterval: 30000 // 30secs
     }
   });
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <Loading>
+        <SpinnerDiamond color="#9f9160" />
+      </Loading>
+    );
   }
   if (isError) {
     return <Error />;

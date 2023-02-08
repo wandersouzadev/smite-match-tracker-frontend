@@ -9,6 +9,7 @@ import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { GetPlayer } from "@/typings/smite/get-player";
 import cx from "classnames";
 import React, { useRef, useState } from "react";
+import { SpinnerDiamond } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
 import Styles from "./styles.module.scss";
@@ -36,9 +37,15 @@ export const ProfileTracker: React.FC = () => {
       imgRef.current.src = "Icons/Random.webp";
     }
   };
+
   if (isLoading) {
-    return <Loading />;
+    return (
+      <Loading>
+        <SpinnerDiamond color="#9f9160" />
+      </Loading>
+    );
   }
+
   if (isError) {
     return <Error />;
   }
