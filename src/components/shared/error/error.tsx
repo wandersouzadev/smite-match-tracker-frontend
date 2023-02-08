@@ -1,6 +1,12 @@
 import React from "react";
 import Styles from "./error.module.scss";
 
-export const Error: React.FC = () => {
-  return <div className={Styles.wrapper}>Temporarily unavailable</div>;
+interface Props {
+  message?: string;
+}
+
+export const Error: React.FC<Props> = ({ message }) => {
+  return (
+    <div className={Styles.wrapper}>{message || "Temporarily unavailable"}</div>
+  );
 };
