@@ -116,6 +116,14 @@ module.exports = (_env, argv) => {
                     "styles",
                     "settings",
                     "_fonts.scss"
+                  ),
+                  path.resolve(
+                    __dirname,
+                    "..",
+                    "src",
+                    "styles",
+                    "settings",
+                    "_variables.scss"
                   )
                 ]
               }
