@@ -12,7 +12,7 @@ import React, { useRef, useState } from "react";
 import { SpinnerDiamond } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
-import Styles from "./styles.module.scss";
+import Styles from "./profile-tracker.module.scss";
 
 type InputType = "keyboard" | "controller";
 
