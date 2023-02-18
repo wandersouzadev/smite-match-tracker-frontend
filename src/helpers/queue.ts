@@ -5,8 +5,8 @@ export const smiteQueueHelper = (queueId: string | number | undefined) => {
     // CONQUEST //
     case 426:
     case "426":
-    case "10193":
     case 10193:
+    case "10193":
       return "Normal Conquest";
     case 451:
     case "451":
@@ -45,23 +45,23 @@ export const smiteQueueHelper = (queueId: string | number | undefined) => {
     case "435":
     case 10195:
     case "10195":
-      return "Normal Arena";
+      return "Arena";
     // ---- //
 
     // ASSAULT //
 
     case 445:
     case "445":
-      return "Normal Assault";
+      return "Assault";
     // ---- //
 
     // SLASH //
     case 10189:
     case "10189":
-      return "Normal Slash";
+      return "Slash";
     // ---- ///
 
-    // SLASH //
+    // ARENA S7 //
     case 438:
     case "438":
       return "Season 7 Arena";
@@ -71,6 +71,12 @@ export const smiteQueueHelper = (queueId: string | number | undefined) => {
     case 434:
     case "434":
       return "MOTD";
+    // ---- //
+
+    // JUNGLE PRACTICE //
+    case 444:
+    case "444":
+      return "Jungle Practice";
     // ---- //
     default:
       return "";
@@ -95,7 +101,7 @@ export const SmiteGameModeList = [
   SmiteGameMode.MOTD
 ];
 
-export const playersCountByGameMode = (modeId: number) => {
+export const playersCountByGameModeHelper = (modeId: number) => {
   switch (modeId) {
     case SmiteGameMode.RankedDuel:
     case SmiteGameMode.RankedDuelController:
