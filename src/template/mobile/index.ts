@@ -1,0 +1,1 @@
+export { MobileTemplate } from "./mobile";

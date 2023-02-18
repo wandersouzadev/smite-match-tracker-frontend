@@ -27,6 +27,11 @@ module.exports = (_env, argv) => {
       path: path.resolve(pagesPath, "video-overlay.tsx"),
       outputHtml: "video_overlay.html",
       build: true
+    },
+    Mobile: {
+      path: path.resolve(pagesPath, "mobile.tsx"),
+      outputHtml: "mobile.html",
+      build: true
     }
   };
 
