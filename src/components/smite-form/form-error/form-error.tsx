@@ -2,7 +2,7 @@ import { smiteFormState } from "@/recoil/atoms/smite-form";
 import { ArrowClockwise } from "phosphor-react";
 import React from "react";
 import { useResetRecoilState } from "recoil";
-import Styles from "./styles.module.scss";
+import Styles from "./form-error.module.scss";
 
 export const SmiteFormError: React.FC = () => {
   const resetSmiteForm = useResetRecoilState(smiteFormState);

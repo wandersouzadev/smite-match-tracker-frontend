@@ -6,7 +6,7 @@ import { MatchHistory } from "../match-history";
 import { MatchTracker } from "../match-tracker";
 import { ProfileTracker } from "../profile-tracker";
 import { Stats } from "../stats";
-import Styles from "./styles.module.scss";
+import Styles from "./smite-overlay.module.scss";
 
 export const SmiteOverlay: React.FC = () => {
   const [appConfig, setAppConfig] = useRecoilState(appConfigState);

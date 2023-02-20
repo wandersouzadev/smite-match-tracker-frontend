@@ -6,7 +6,7 @@ import { useRecoilValue } from "recoil";
 import { SpinnerCircular } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
-import Styles from "./styles.module.scss";
+import Styles from "./twitch-profile.module.scss";
 
 export const TwitchProfile: React.FC = () => {
   const twitchAuth = useRecoilValue(twitchAuthState);

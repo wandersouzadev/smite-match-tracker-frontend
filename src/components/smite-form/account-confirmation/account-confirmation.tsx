@@ -9,7 +9,7 @@ import React from "react";
 import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
 import { SpinnerCircular } from "spinners-react";
 import { SmiteFormError } from "../form-error";
-import Styles from "./styles.module.scss";
+import Styles from "./account-confirmation.module.scss";
 
 export const SmiteFormAccountConfirmation: React.FC = () => {
   const twitchHelper = useRecoilValue(twitchHelperState);

@@ -2,7 +2,7 @@ import { smiteFormState } from "@/recoil/atoms/smite-form";
 import { MagnifyingGlass } from "phosphor-react";
 import React, { useRef } from "react";
 import { useRecoilState } from "recoil";
-import Styles from "./styles.module.scss";
+import Styles from "./account-search.module.scss";
 
 export const SmiteFormAccountSearch: React.FC = () => {
   const [smiteForm, setSmiteForm] = useRecoilState(smiteFormState);

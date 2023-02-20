@@ -2,7 +2,7 @@ import { PlatformIcon } from "@/components/shared/platform-icon";
 import { smiteFormState } from "@/recoil/atoms/smite-form";
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import Styles from "./styles.module.scss";
+import Styles from "./platform-select.module.scss";
 
 export const SmiteFormPlatformSelect: React.FC = () => {
   const setSmiteForm = useSetRecoilState(smiteFormState);

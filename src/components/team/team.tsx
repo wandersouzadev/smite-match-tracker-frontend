@@ -5,7 +5,7 @@ import { SmiteMatchPlayer } from "@/typings/smite/match-player";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import { SpinnerRoundFilled } from "spinners-react";
-import Styles from "./team.modules.scss";
+import Styles from "./team.module.scss";
 
 interface Props {
   players: SmiteMatchPlayer[];

@@ -7,7 +7,7 @@ import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { SmiteLiveMatch } from "@/typings/smite/live-match";
 import React from "react";
 import { SpinnerDiamond } from "spinners-react";
-import Styles from "./styles.module.scss";
+import Styles from "./match-tracker.module.scss";
 
 export const MatchTracker: React.FC = () => {
   const twitchAuth = useTwitchAuth();
