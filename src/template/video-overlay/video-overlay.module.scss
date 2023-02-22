@@ -1,7 +1,8 @@
 .wrapper {
   position: absolute;
   display: flex;
-  max-height: 380px;
+  max-height: 400px;
+  gap: 0.5px;
 
   .open-close-toggle {
     display: flex;
@@ -33,7 +34,7 @@
 
 .left {
   top: 50vh;
-  left: 4px;
+  left: 1px;
 }
 
 .right {
@@ -43,7 +44,7 @@
 
 .top-left {
   top: 5rem;
-  left: 4px;
+  left: 1px;
 }
 
 .top-right {
@@ -53,7 +54,7 @@
 
 .bottom-left {
   bottom: 5rem;
-  left: 4px;
+  left: 1px;
 }
 
 .bottom-right {
@@ -62,10 +63,9 @@
 }
 
 .left-maximized {
-  transform: perspective(600px) rotateY(5deg);
-  left: 1rem;
+  left: 1px;
   .open-close-toggle {
-    max-height: 380px;
+    max-height: 400px;
     flex-direction: column;
     align-self: end;
 
@@ -77,10 +77,9 @@
 }
 
 .right-maximized {
-  transform: perspective(600px) rotateY(-5deg);
   right: 5rem;
   .open-close-toggle {
-    max-height: 380px;
+    max-height: 400px;
     flex-direction: column;
     align-self: end;
     margin-left: 0.5rem;
