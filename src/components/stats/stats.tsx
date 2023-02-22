@@ -1,4 +1,4 @@
-import { cdnGodsImgLoad } from "@/helpers/gods-img";
+import { cdnGodImgHelper } from "@/helpers/gods-img";
 import { useEbs } from "@/hooks/use-ebs";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { GetGods } from "@/typings/smite/get-gods";
@@ -29,6 +29,14 @@ export const Stats: React.FC = () => {
     return <Error />;
   }
 
+  if (!data?.length) {
+    return (
+      <div className={Styles.center}>
+        <Error message="Streamer has hidden SMITE profile" />
+      </div>
+    );
+  }
+
   return (
     <div className={Styles.wrapper}>
       <table className={Styles.table}>
@@ -37,10 +45,10 @@ export const Stats: React.FC = () => {
             {data?.slice(0, 5).map((playerGodsData) => (
               <td key={playerGodsData.god_id}>
                 <img
-                  src={cdnGodsImgLoad(playerGodsData.god)}
+                  src={cdnGodImgHelper(playerGodsData.god)}
                   alt={playerGodsData.god}
-                  height={290}
-                  width={112}
+                  height={314}
+                  width={114}
                 />
 
                 <div className={Styles.top}>
