@@ -1,6 +1,7 @@
 import { Error } from "@/components/shared/error";
 import { Loading } from "@/components/shared/loading";
 import { Team } from "@/components/team";
+import { SmiteGameMode } from "@/helpers/game-mode";
 import { SmiteGameModeList, smiteQueueHelper } from "@/helpers/queue";
 import { useEbs } from "@/hooks/use-ebs";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
@@ -39,20 +40,76 @@ export const MatchTracker: React.FC = () => {
     (player) => player.taskForce === 1
   );
 
-  if (data.status !== "In Game") {
+  if (data?.status === "Unknown") {
+    return (
+      <div className={Styles.center}>
+        <Error message={`${data.accountName} has hidden SMITE profile`} />
+      </div>
+    );
+  }
+
+  if (data?.status === "Offline") {
     return (
       <div className={Styles["waiting-match"]}>
-        Waiting to join a match
+        <p>
+          SMITE account{" "}
+          <strong className={Styles["streamer-name"]}>
+            {data.accountName}
+          </strong>{" "}
+          is offline
+        </p>
+      </div>
+    );
+  }
+
+  if (data?.status === "In Lobby") {
+    return (
+      <div className={Styles["waiting-match"]}>
+        <p>
+          <strong className={Styles["streamer-name"]}>
+            {data.accountName}
+          </strong>{" "}
+          is on the lobby
+        </p>
         <SpinnerDiamond size={28} color="#ada176" />
       </div>
     );
   }
 
-  if (!SmiteGameModeList.includes(Number(data.queueId))) {
+  if (data?.status === "God Selection") {
     return (
       <div className={Styles["waiting-match"]}>
-        Waiting to join a match
+        <p>
+          <strong className={Styles["streamer-name"]}>
+            {data.accountName}
+          </strong>{" "}
+          is on the god selection
+        </p>
         <SpinnerDiamond size={28} color="#ada176" />
+      </div>
+    );
+  }
+
+  if (!SmiteGameModeList.includes(Number(data?.queueId))) {
+    return (
+      <div className={Styles["waiting-match"]}>
+        <SpinnerDiamond size={68} color="#ada176" />
+      </div>
+    );
+  }
+
+  if (
+    data?.status === "In Game" &&
+    Number(data.queueId) === SmiteGameMode.JunglePractice
+  ) {
+    return (
+      <div className={Styles["waiting-match"]}>
+        <p>
+          <strong className={Styles["streamer-name"]}>
+            {data.accountName}
+          </strong>{" "}
+          is on the Jungle Practice
+        </p>
       </div>
     );
   }
