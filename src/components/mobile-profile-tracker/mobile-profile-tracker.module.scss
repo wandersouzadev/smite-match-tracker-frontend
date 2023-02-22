@@ -1,0 +1,131 @@
+.wrapper {
+  user-select: none;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  font-family: "Penumbra Half Serif";
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+
+  .profile-image {
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .profile-data {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-family: "Open Sans";
+      font-size: 1.3rem;
+    }
+
+    .data-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .data {
+      display: flex;
+      align-items: center;
+    }
+    .info {
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.league {
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.league-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+.league-content-conquest {
+  background-blend-mode: color;
+}
+.league-content-joust {
+  background-blend-mode: color;
+}
+.league-content-duel {
+  background-blend-mode: color;
+}
+
+.smite-icons {
+  font-family: "Smiticons";
+  font-style: normal;
+  width: 28px;
+  height: 28px;
+  font-size: 24px;
+}
+
+.input-select {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  display: flex;
+  gap: 0.5rem;
+
+  button {
+    border: solid 2px #85784a;
+    outline: none;
+    background-color: transparent;
+    color: $violet12;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    &:hover {
+      background-color: $violet2;
+    }
+  }
+
+  .active {
+    background-color: $violet3;
+  }
+}
+
+.streamer-name {
+  font-family: "Open Sans", sans-serif;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}

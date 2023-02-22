@@ -1,0 +1,61 @@
+.wrapper {
+  max-height: 100vh;
+  overflow-y: scroll;
+  font-family: "Penumbra Half Serif";
+  display: flex;
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  tr {
+    border: solid 2px black;
+  }
+}
+
+.caption {
+  font-size: 0.7rem;
+  font-family: "Open Sans";
+}
+
+.small {
+  font-size: 0.4rem;
+  padding: 0 2px;
+}
+
+.big {
+  font-size: 1.2rem;
+}
+
+.win {
+  background-color: rgba(12, 248, 0, 0.705);
+  border-bottom: solid rgba(12, 248, 0, 0.705);
+}
+
+.lose {
+  background-color: rgba(255, 0, 0, 0.705);
+  border-bottom: solid rgba(255, 0, 0, 0.705);
+}
+
+.icon {
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+  padding: 1px;
+}
+
+.item-icon {
+  vertical-align: bottom;
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+  padding: 1px;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}

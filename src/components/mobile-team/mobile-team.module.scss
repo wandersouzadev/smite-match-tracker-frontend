@@ -1,0 +1,49 @@
+.team-table {
+  font-family: "Open Sans", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.6rem;
+
+  td {
+    padding: 0 2px;
+  }
+
+  @media screen and (min-width: 460px) {
+    font-size: 1rem;
+  }
+}
+
+.god-img {
+  img,
+  svg {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    vertical-align: bottom;
+  }
+}
+
+.streamer-name {
+  color: #ada176;
+}
+
+.small {
+  font-size: 0.5rem;
+}
+
+.waiting-match {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  font-family: "Penumbra Flare";
+  font-size: 28px;
+}
+
+.god-name {
+  font-weight: normal;
+}
+
+.player-name {
+  font-weight: bold;
+}

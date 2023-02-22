@@ -1,5 +1,67 @@
 .wrapper {
   position: relative;
-  @media screen and (max-width: $mobile-max-width) {
+  background-color: $purple7;
+  min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-rows: 48px 1rem;
+  grid-template-areas:
+    "header"
+    "main";
+  background-color: #772ce8;
+  background: repeating-linear-gradient(
+    45deg,
+    #7c31ee,
+    #7c31ee 20px,
+    #772ce8 20px,
+    #772ce8 100px
+  );
+}
+
+.header {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  grid-area: header;
+
+  button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
   }
+
+  svg {
+    color: white;
+    transform: scale(1.5);
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  object-fit: contain;
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) saturate(100%) invert(53%) sepia(60%) saturate(261%)
+    hue-rotate(8deg) brightness(91%) contrast(88%);
+}
+
+.title {
+  font-size: 0.7rem;
+  font-family: "Penumbra Flare";
+  font-weight: bold;
+}
+
+.main {
+  grid-area: main;
+  transition: all ease-in-out 4s;
 }
