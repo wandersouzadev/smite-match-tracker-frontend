@@ -13,5 +13,6 @@ export enum SmiteGameMode {
   Arena = 435,
   Assault = 445,
   Slash = 10189,
-  MOTD = 434
+  MOTD = 434,
+  JunglePractice = 444
 }

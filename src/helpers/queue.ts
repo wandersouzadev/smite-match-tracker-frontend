@@ -98,7 +98,8 @@ export const SmiteGameModeList = [
   SmiteGameMode.RankedDuel,
   SmiteGameMode.RankedDuelController,
   SmiteGameMode.Slash,
-  SmiteGameMode.MOTD
+  SmiteGameMode.MOTD,
+  SmiteGameMode.JunglePractice
 ];
 
 export const playersCountByGameModeHelper = (modeId: number) => {
