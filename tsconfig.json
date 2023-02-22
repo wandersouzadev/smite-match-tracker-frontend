@@ -16,6 +16,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "baseUrl": "src",
+    "resolveJsonModule": true,
     "paths": {
       "@/*": [
         "*"
@@ -33,7 +34,8 @@
     ],
   },
   "include": [
-    "src"
+    "src",
+    "tests"
   ],
   "exclude": [
     "node_modules"
