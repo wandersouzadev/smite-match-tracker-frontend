@@ -4,9 +4,6 @@
 }
 
 .table {
-  tr {
-  }
-
   td {
     position: relative;
     img {
@@ -34,4 +31,12 @@
   padding: 1px;
 
   text-shadow: 1px 1px black;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
 }
