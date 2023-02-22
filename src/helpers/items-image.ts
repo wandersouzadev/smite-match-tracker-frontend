@@ -1,4 +1,4 @@
-export const itemsImageCdnHelper = (itemName: string) => {
+export const cdnItemsImgHelper = (itemName: string) => {
   let fixedItemName = itemName
     .toLowerCase()
     .replace("s8 ", "")

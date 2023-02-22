@@ -1,3 +1,3 @@
-export const loadProfileAvatar = (url: string) => {
+export const cdnProfileAvatarHelper = (url: string) => {
   return url.replace("http", "https");
 };

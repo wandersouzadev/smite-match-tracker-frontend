@@ -1,4 +1,4 @@
-export const loadImgByTier = (
+export const imgBySmiteTierHelper = (
   tierId: string | number,
   mode: "Conquest" | "Joust" | "Duel"
 ) => {

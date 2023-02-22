@@ -1,4 +1,4 @@
-export const cdnGodsImgLoad = (
+export const cdnGodImgHelper = (
   smiteGodName: string,
   options?: { replaceUnderscore: boolean }
 ) => {

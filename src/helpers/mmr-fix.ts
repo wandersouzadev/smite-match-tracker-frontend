@@ -1,4 +1,4 @@
-export const mmrFix = (mmr: number) => {
+export const mmrFixHelper = (mmr: number) => {
   if (mmr === 0) {
     return 1500;
   }
