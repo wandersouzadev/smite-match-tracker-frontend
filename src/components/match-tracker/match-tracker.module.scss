@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-family: "Penumbra Half Serif";
 
@@ -61,5 +61,18 @@
   align-items: center;
   flex-grow: 1;
   font-family: "Penumbra Flare";
-  font-size: 28px;
+  font-size: 20px;
+}
+
+.streamer-name {
+  font-family: "Open Sans", sans-serif;
+  text-decoration: underline;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
 }
