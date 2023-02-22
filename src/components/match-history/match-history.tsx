@@ -1,5 +1,5 @@
-import { cdnGodsImgLoad } from "@/helpers/gods-img";
-import { itemsImageCdnHelper } from "@/helpers/items-image";
+import { cdnGodIconHelper } from "@/helpers/cdn-god-icon";
+import { cdnItemsImgHelper } from "@/helpers/items-image";
 import { smiteQueueHelper } from "@/helpers/queue";
 import { SmiteRegionFlagsHelper } from "@/helpers/region-flags";
 import { useEbs } from "@/hooks/use-ebs";
@@ -8,7 +8,7 @@ import { GetMatchHistory } from "@/typings/smite/get-matches";
 import dayjs from "dayjs";
 import tz from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
-import React, { useRef } from "react";
+import React from "react";
 import { SpinnerDiamond } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
@@ -24,17 +24,10 @@ export const MatchHistory: React.FC = () => {
     path: "/smite/player-history/@me",
     token: twitchAuth?.token,
     config: {
-      revalidateOnFocus: true
+      revalidateOnFocus: true,
+      refreshInterval: 30000 // 30secs
     }
   });
-
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  const handleImgError = () => {
-    if (imgRef.current?.src) {
-      imgRef.current.src = "Icons/Dummy.png";
-    }
-  };
 
   if (isLoading) {
     return (
@@ -66,14 +59,14 @@ export const MatchHistory: React.FC = () => {
                 {dayjs
                   .utc(`${playerH.Match_Time} UTC`)
                   .tz(timeZone)
-                  .format("DD/MMM/YYYY HH:ss")}
+                  .format("DD/MMM")}
               </td>
 
               <td title={`${playerH.Region} Server`}>
                 <img
                   className={Styles.icon}
                   src={SmiteRegionFlagsHelper(playerH.Region)}
-                  alt={playerH.Region}
+                  alt=""
                 />
               </td>
 
@@ -84,10 +77,10 @@ export const MatchHistory: React.FC = () => {
               <td title={playerH.God}>
                 <img
                   className={Styles.icon}
-                  src={cdnGodsImgLoad(playerH.God, {
+                  src={cdnGodIconHelper(playerH.God, {
                     replaceUnderscore: true
                   })}
-                  alt={playerH.God}
+                  alt=""
                 />
               </td>
 
@@ -98,17 +91,15 @@ export const MatchHistory: React.FC = () => {
               <td title={playerH.Active_1}>
                 <img
                   className={Styles.icon}
-                  src={itemsImageCdnHelper(playerH.Active_1)}
-                  alt={playerH.Active_1}
-                  onError={handleImgError}
+                  src={cdnItemsImgHelper(playerH.Active_1)}
+                  alt=""
                 />
               </td>
               <td title={playerH.Active_2}>
                 <img
                   className={Styles.icon}
-                  src={itemsImageCdnHelper(playerH.Active_2)}
-                  alt={playerH.Active_2}
-                  onError={handleImgError}
+                  src={cdnItemsImgHelper(playerH.Active_2)}
+                  alt=""
                 />
               </td>
 
@@ -116,10 +107,8 @@ export const MatchHistory: React.FC = () => {
                 <td title={playerH.Item_1}>
                   <img
                     className={Styles.icon}
-                    src={itemsImageCdnHelper(playerH.Item_1)}
-                    alt={playerH.Item_1}
-                    ref={imgRef}
-                    onError={handleImgError}
+                    src={cdnItemsImgHelper(playerH.Item_1)}
+                    alt=""
                   />
                 </td>
               )}
@@ -127,10 +116,8 @@ export const MatchHistory: React.FC = () => {
                 <td title={playerH.Item_2}>
                   <img
                     className={Styles.icon}
-                    src={itemsImageCdnHelper(playerH.Item_2)}
-                    alt={playerH.Item_2}
-                    ref={imgRef}
-                    onError={handleImgError}
+                    src={cdnItemsImgHelper(playerH.Item_2)}
+                    alt=""
                   />
                 </td>
               )}
@@ -138,10 +125,8 @@ export const MatchHistory: React.FC = () => {
                 <td title={playerH.Item_3}>
                   <img
                     className={Styles.icon}
-                    src={itemsImageCdnHelper(playerH.Item_3)}
-                    alt={playerH.Item_3}
-                    ref={imgRef}
-                    onError={handleImgError}
+                    src={cdnItemsImgHelper(playerH.Item_3)}
+                    alt=""
                   />
                 </td>
               )}
@@ -149,10 +134,8 @@ export const MatchHistory: React.FC = () => {
                 <td title={playerH.Item_4}>
                   <img
                     className={Styles.icon}
-                    src={itemsImageCdnHelper(playerH.Item_4)}
-                    alt={playerH.Item_4}
-                    ref={imgRef}
-                    onError={handleImgError}
+                    src={cdnItemsImgHelper(playerH.Item_4)}
+                    alt=""
                   />
                 </td>
               )}
@@ -160,10 +143,8 @@ export const MatchHistory: React.FC = () => {
                 <td title={playerH.Item_5}>
                   <img
                     className={Styles.icon}
-                    src={itemsImageCdnHelper(playerH.Item_5)}
-                    alt={playerH.Item_5}
-                    ref={imgRef}
-                    onError={handleImgError}
+                    src={cdnItemsImgHelper(playerH.Item_5)}
+                    alt=""
                   />
                 </td>
               )}
@@ -171,10 +152,8 @@ export const MatchHistory: React.FC = () => {
                 <td title={playerH.Item_6}>
                   <img
                     className={Styles.icon}
-                    src={itemsImageCdnHelper(playerH.Item_6)}
-                    alt={playerH.Item_6}
-                    ref={imgRef}
-                    onError={handleImgError}
+                    src={cdnItemsImgHelper(playerH.Item_6)}
+                    alt=""
                   />
                 </td>
               )}
