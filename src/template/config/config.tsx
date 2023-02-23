@@ -41,7 +41,7 @@ export const ConfigTemplate: React.FC = () => {
         {step === 2 && <SmiteFormAccountConfirmation />}
       </main>
       <footer className={Styles.footer}>
-        <b>Smite Match Tracker v1.2.0</b>
+        <b>Smite Match Tracker v1.4.0</b>
         <a
           href="https://twitter.com/wandersouzadev"
           target="__blank"
