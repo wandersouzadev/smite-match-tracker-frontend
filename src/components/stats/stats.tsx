@@ -6,7 +6,7 @@ import React from "react";
 import { SpinnerDiamond } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
-import Styles from "./stats.modules.scss";
+import Styles from "./stats.module.scss";
 
 export const Stats: React.FC = () => {
   const twitchAuth = useTwitchAuth();
