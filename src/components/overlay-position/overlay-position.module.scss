@@ -7,11 +7,7 @@
   justify-content: space-between;
   align-content: space-between;
   padding: 2px;
-  min-height: 100px;
-
-  @media (min-width: 699px) {
-    min-height: 200px;
-  }
+  min-height: 200px;
 
   button {
     text-align: center;
