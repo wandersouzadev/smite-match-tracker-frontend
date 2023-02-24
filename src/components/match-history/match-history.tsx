@@ -12,7 +12,7 @@ import React from "react";
 import { SpinnerDiamond } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
-import Styles from "./match-history.modules.scss";
+import Styles from "./match-history.module.scss";
 
 dayjs.extend(utc);
 dayjs.extend(tz);
