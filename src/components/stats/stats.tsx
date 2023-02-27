@@ -3,7 +3,6 @@ import { useEbs } from "@/hooks/use-ebs";
 import { useTwitchAuth } from "@/hooks/use-twitch-auth";
 import { GetGods } from "@/typings/smite/get-gods";
 import React from "react";
-import { SpinnerDiamond } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
 import Styles from "./stats.module.scss";
@@ -19,11 +18,7 @@ export const Stats: React.FC = () => {
   });
 
   if (isLoading) {
-    return (
-      <Loading>
-        <SpinnerDiamond color="#9f9160" />
-      </Loading>
-    );
+    return <Loading />;
   }
   if (isError) {
     return <Error />;

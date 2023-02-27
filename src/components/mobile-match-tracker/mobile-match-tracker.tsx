@@ -6,7 +6,6 @@ import { SmiteLiveMatch } from "@/typings/smite/live-match";
 import React from "react";
 import { SpinnerDiamond } from "spinners-react";
 import { MobileTeam } from "../mobile-team";
-// import json from "../../../tests/mocks/live-match-ranked-conquest.json";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
 import Styles from "./mobile-match-tracker.module.scss";
@@ -24,23 +23,11 @@ export const MobileMatchTracker: React.FC = () => {
   });
 
   if (isLoading) {
-    return (
-      <Loading>
-        <SpinnerDiamond color="#9f9160" />
-      </Loading>
-    );
+    return <Loading />;
   }
   if (isError) {
     return <Error />;
   }
-
-  // const data: SmiteLiveMatch = {
-  //   accountName: "Wanderley",
-  //   accountId: "5974682",
-  //   queueId: "426",
-  //   status: "In Game",
-  //   teamsData: json as any
-  // };
 
   const orderPlayers = data?.teamsData?.filter(
     (player) => player.taskForce === 2

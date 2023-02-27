@@ -9,8 +9,6 @@ import dayjs from "dayjs";
 import tz from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import React, { useRef } from "react";
-import { SpinnerDiamond } from "spinners-react";
-// import json from "../../../tests/mocks/match-history.json";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
 import Styles from "./mobile-match-history.module.scss";
@@ -39,18 +37,11 @@ export const MobileMatchHistory: React.FC = () => {
   };
 
   if (isLoading) {
-    return (
-      <Loading>
-        <SpinnerDiamond color="#9f9160" />
-      </Loading>
-    );
+    return <Loading />;
   }
   if (isError) {
     return <Error />;
   }
-
-  // TODO: DELETE
-  // const data = json as GetMatchHistory[];
 
   if (data[0]?.ret_msg?.includes("No Match History")) {
     return <Error message="No recent matches found" />;

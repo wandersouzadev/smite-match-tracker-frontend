@@ -13,7 +13,6 @@ import dayjs from "dayjs";
 import tz from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import React, { useRef, useState } from "react";
-import { SpinnerDiamond } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
 import Styles from "./profile-tracker.module.scss";
@@ -48,11 +47,7 @@ export const ProfileTracker: React.FC = () => {
   };
 
   if (isLoading) {
-    return (
-      <Loading>
-        <SpinnerDiamond color="#9f9160" />
-      </Loading>
-    );
+    return <Loading />;
   }
 
   if (isError) {

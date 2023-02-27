@@ -9,7 +9,6 @@ import dayjs from "dayjs";
 import tz from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import React from "react";
-import { SpinnerDiamond } from "spinners-react";
 import { Error } from "../shared/error";
 import { Loading } from "../shared/loading";
 import Styles from "./match-history.module.scss";
@@ -30,11 +29,7 @@ export const MatchHistory: React.FC = () => {
   });
 
   if (isLoading) {
-    return (
-      <Loading>
-        <SpinnerDiamond color="#9f9160" />
-      </Loading>
-    );
+    return <Loading />;
   }
   if (isError) {
     return <Error />;

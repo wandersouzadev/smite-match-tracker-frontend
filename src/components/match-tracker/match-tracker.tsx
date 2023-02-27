@@ -23,11 +23,7 @@ export const MatchTracker: React.FC = () => {
   });
 
   if (isLoading) {
-    return (
-      <Loading>
-        <SpinnerDiamond color="#9f9160" />
-      </Loading>
-    );
+    return <Loading />;
   }
   if (isError) {
     return <Error />;
