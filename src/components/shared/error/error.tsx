@@ -5,8 +5,8 @@ interface Props {
   message?: string;
 }
 
-export const Error: React.FC<Props> = ({ message }) => {
-  return (
-    <div className={Styles.wrapper}>{message || "Temporarily unavailable"}</div>
-  );
+export const Error: React.FC<Props> = ({
+  message = "Temporarily unavailable"
+}) => {
+  return <div className={Styles.wrapper}>{message}</div>;
 };
