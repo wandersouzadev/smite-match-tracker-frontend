@@ -1,10 +1,15 @@
 import React from "react";
+import { SpinnerCircular } from "spinners-react";
 import Styles from "./loading.module.scss";
 
 interface Props {
-  children: React.ReactNode;
+  hexColor?: string;
 }
 
-export const Loading: React.FC<Props> = ({ children }) => {
-  return <div className={Styles.wrapper}>{children}</div>;
+export const Loading: React.FC<Props> = ({ hexColor = "#9f9160" }) => {
+  return (
+    <div className={Styles.wrapper}>
+      <SpinnerCircular color={hexColor} />
+    </div>
+  );
 };
