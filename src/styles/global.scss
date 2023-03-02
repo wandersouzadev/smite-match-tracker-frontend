@@ -8,15 +8,13 @@ html {
   color: $violet12;
   font-family: "Open Sans", sans-serif;
 
-  * {
-    scroll-behavior: smooth;
-    scrollbar-color: #9f9160 #05111e;
-    scrollbar-width: thin;
-    scroll-snap-type: none;
-  }
+  scroll-behavior: smooth;
+  scrollbar-color: #9f9160 black;
+  scrollbar-width: thin;
+  scroll-snap-type: none;
 
   ::-webkit-scrollbar {
-    background-color: #05111e;
+    background-color: black;
     width: 2px;
   }
 
