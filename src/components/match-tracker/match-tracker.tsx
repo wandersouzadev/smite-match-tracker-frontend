@@ -37,11 +37,7 @@ export const MatchTracker: React.FC = () => {
   );
 
   if (data?.status === "Unknown") {
-    return (
-      <div className={Styles.center}>
-        <Error message={`${data.accountName} has hidden SMITE profile`} />
-      </div>
-    );
+    return <Error message={`${data.accountName} has hidden SMITE profile`} />;
   }
 
   if (data?.status === "Offline") {

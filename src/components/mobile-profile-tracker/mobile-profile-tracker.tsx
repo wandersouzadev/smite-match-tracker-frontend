@@ -56,11 +56,7 @@ export const MobileProfileTracker: React.FC = () => {
   }
 
   if (data?.ret_msg?.includes("Player Privacy")) {
-    return (
-      <div className={Styles.center}>
-        <Error message="Streamer has hidden SMITE profile" />
-      </div>
-    );
+    return <Error message="Streamer has hidden SMITE profile" />;
   }
 
   return (

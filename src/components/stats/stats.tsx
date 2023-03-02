@@ -25,11 +25,7 @@ export const Stats: React.FC = () => {
   }
 
   if (!data?.length) {
-    return (
-      <div className={Styles.center}>
-        <Error message="Streamer has hidden SMITE profile" />
-      </div>
-    );
+    return <Error message="Streamer has hidden SMITE profile" />;
   }
 
   return (
