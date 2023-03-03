@@ -12,15 +12,8 @@
   grid-template-areas:
     "header"
     "main";
-
   overflow: hidden;
-
   animation: AnimateOpen forwards 0.5s;
-
-  @media (max-width: 900px) {
-    height: 340px;
-    grid-template-rows: 50px 1fr;
-  }
 }
 
 .header {
