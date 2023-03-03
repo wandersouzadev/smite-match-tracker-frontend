@@ -13,13 +13,13 @@ import Styles from "./team.module.scss";
 interface Props {
   players: SmiteMatchPlayer[];
   streamerAccountId: string;
-  gameModId: number;
+  gameModeId: number;
 }
 
 export const Team: React.FC<Props> = ({
   players,
   streamerAccountId,
-  gameModId
+  gameModeId: gameModId
 }) => {
   const [teamMatchState, setTeamMatchState] = useState({
     hasDisconnectedPlayers: false,
@@ -102,7 +102,7 @@ export const Team: React.FC<Props> = ({
               className={Styles["content-mmr"]}
             >
               <strong>
-                Team mmr {averageMMR} {mmrToTierHelper(averageMMR)}
+                Average MMR {averageMMR} {mmrToTierHelper(averageMMR)}
               </strong>
             </td>
           </tr>

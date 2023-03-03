@@ -114,14 +114,14 @@ export const MatchTracker: React.FC = () => {
           <Team
             players={orderPlayers}
             streamerAccountId={data.accountId}
-            gameModId={Number(data.queueId)}
+            gameModeId={Number(data.queueId)}
           />
         </div>
         <div className={Styles.chaos}>
           <Team
             players={chaosPlayers}
             streamerAccountId={data.accountId}
-            gameModId={Number(data.queueId)}
+            gameModeId={Number(data.queueId)}
           />
         </div>
       </div>
