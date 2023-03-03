@@ -1,13 +1,7 @@
 .wrapper {
   display: grid;
   background-size: 10px 10px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    $purple1 0,
-    #05111e 1px,
-    $purple1 0,
-    $purple1 50%
-  );
+  background-color: #010b1c;
   grid-template-rows: 80px 1fr;
   grid-template-areas:
     "header"
