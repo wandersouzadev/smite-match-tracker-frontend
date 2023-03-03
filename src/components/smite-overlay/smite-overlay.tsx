@@ -34,7 +34,7 @@ export const SmiteOverlay: React.FC = () => {
         />
         <button
           type="button"
-          className={appConfig?.overlayMenuTab === 1 ? Styles.active : null}
+          className={appConfig?.overlayMenuTab === 1 && Styles.active}
           onClick={() =>
             setAppConfig((oldValue) => ({ ...oldValue, overlayMenuTab: 1 }))
           }
@@ -43,7 +43,7 @@ export const SmiteOverlay: React.FC = () => {
         </button>
         <button
           type="button"
-          className={appConfig?.overlayMenuTab === 2 ? Styles.active : null}
+          className={appConfig?.overlayMenuTab === 2 && Styles.active}
           onClick={() =>
             setAppConfig((oldValue) => ({ ...oldValue, overlayMenuTab: 2 }))
           }
@@ -52,7 +52,7 @@ export const SmiteOverlay: React.FC = () => {
         </button>
         <button
           type="button"
-          className={cx(appConfig?.overlayMenuTab === 3 ? Styles.active : null)}
+          className={appConfig?.overlayMenuTab === 3 && Styles.active}
           onClick={() =>
             setAppConfig((oldValue) => ({ ...oldValue, overlayMenuTab: 3 }))
           }
@@ -62,7 +62,7 @@ export const SmiteOverlay: React.FC = () => {
 
         <button
           type="button"
-          className={cx(appConfig?.overlayMenuTab === 4 ? Styles.active : null)}
+          className={appConfig?.overlayMenuTab === 4 && Styles.active}
           onClick={() =>
             setAppConfig((oldValue) => ({ ...oldValue, overlayMenuTab: 4 }))
           }
