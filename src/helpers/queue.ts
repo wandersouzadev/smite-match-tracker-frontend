@@ -49,10 +49,15 @@ export const smiteQueueHelper = (queueId: string | number | undefined) => {
     // ---- //
 
     // ASSAULT //
-
     case 445:
     case "445":
       return "Assault";
+    // ---- //
+
+    // SIEGE //
+    case 459:
+    case "459":
+      return "Siege";
     // ---- //
 
     // SLASH //
@@ -61,16 +66,28 @@ export const smiteQueueHelper = (queueId: string | number | undefined) => {
       return "Slash";
     // ---- ///
 
-    // ARENA //
-    case 438:
-    case "438":
-      return "Arena";
-    // ---- ///
-
     // MOTD //
     case 434:
     case "434":
       return "MOTD";
+    // ---- //
+
+    // CUSTOM QUEUES //
+    case 429:
+    case "429":
+      return "Custom Conquest";
+    case 10190:
+    case "10190":
+      return "Custom Duel";
+    case 441:
+    case "441":
+      return "Custom Joust";
+    case 438:
+    case "438":
+      return "Custom Arena";
+    case 446:
+    case "446":
+      return "Custom Assault";
     // ---- //
 
     // JUNGLE PRACTICE //
@@ -98,22 +115,39 @@ export const SmiteGameModeList = [
   SmiteGameMode.RankedDuel,
   SmiteGameMode.RankedDuelController,
   SmiteGameMode.Slash,
+  SmiteGameMode.Siege,
   SmiteGameMode.MOTD,
+  SmiteGameMode.CustomArena,
+  SmiteGameMode.CustomAssault,
+  SmiteGameMode.CustomConquest,
+  SmiteGameMode.CustomDuel,
+  SmiteGameMode.CustomJoust,
+  SmiteGameMode.CustomSlash,
+  SmiteGameMode.CustomSiege,
   SmiteGameMode.JunglePractice
 ];
 
 export const playersCountByGameModeHelper = (modeId: number) => {
   switch (modeId) {
+    case SmiteGameMode.MOTD:
+      return 0;
+
     case SmiteGameMode.RankedDuel:
     case SmiteGameMode.RankedDuelController:
+    case SmiteGameMode.CustomDuel:
       return 1;
+
     case SmiteGameMode.Under30Joust:
     case SmiteGameMode.Joust:
     case SmiteGameMode.RankedJoust:
     case SmiteGameMode.RankedJoustController:
+    case SmiteGameMode.CustomJoust:
       return 3;
-    case SmiteGameMode.MOTD:
-      return 0;
+
+    case SmiteGameMode.Siege:
+    case SmiteGameMode.CustomSiege:
+      return 4;
+
     default:
       return 5;
   }

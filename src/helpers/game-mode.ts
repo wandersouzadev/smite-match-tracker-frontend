@@ -13,6 +13,14 @@ export enum SmiteGameMode {
   Arena = 435,
   Assault = 445,
   Slash = 10189,
+  Siege = 459,
   MOTD = 434,
+  CustomDuel = 10190,
+  CustomSlash = 10191,
+  CustomAssault = 446,
+  CustomJoust = 441,
+  CustomArena = 438,
+  CustomConquest = 429,
+  CustomSiege = 460,
   JunglePractice = 444
 }
