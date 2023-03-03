@@ -61,10 +61,10 @@ export const smiteQueueHelper = (queueId: string | number | undefined) => {
       return "Slash";
     // ---- ///
 
-    // ARENA S7 //
+    // ARENA //
     case 438:
     case "438":
-      return "Season 7 Arena";
+      return "Arena";
     // ---- ///
 
     // MOTD //
@@ -112,6 +112,8 @@ export const playersCountByGameModeHelper = (modeId: number) => {
     case SmiteGameMode.RankedJoust:
     case SmiteGameMode.RankedJoustController:
       return 3;
+    case SmiteGameMode.MOTD:
+      return 0;
     default:
       return 5;
   }
