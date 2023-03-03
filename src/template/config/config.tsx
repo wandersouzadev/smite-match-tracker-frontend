@@ -24,6 +24,9 @@ export const ConfigTemplate: React.FC = () => {
       <aside className={Styles.aside}>
         <div className={Styles.content}>
           <h2>Accounts</h2>
+          <div className={Styles.notice}>
+            <span>Tracking the first account</span>
+          </div>
           <SmiteAccounts />
         </div>
         <div className={Styles.content}>

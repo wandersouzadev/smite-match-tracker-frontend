@@ -59,6 +59,16 @@ html {
   }
 }
 
+.notice {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  span {
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+}
+
 .main {
   grid-area: main;
   display: flex;
