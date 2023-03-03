@@ -1,96 +1,105 @@
 .wrapper {
+  outline: none;
+  user-select: none;
+}
+
+.overlay {
   position: absolute;
   display: flex;
+}
+
+.maximized {
   max-height: 400px;
-  gap: 0.5px;
 
-  .open-close-toggle {
+  .overlay-button {
     display: flex;
-
+    justify-items: center;
+    align-items: flex-end;
     button {
-      cursor: pointer;
-      border: none;
-      outline: none;
-      background-color: white;
-
-      &:hover {
-        background-color: white;
-      }
+      height: 100px;
+      width: 25px;
     }
   }
 
-  @media (max-width: 699px) {
-    display: none;
+  .left {
+    top: 25vh;
+  }
+
+  .right {
+    top: 25vh;
   }
 }
 
-.left-side {
-  flex-direction: row;
-}
-
-.right-side {
-  flex-direction: row-reverse;
+.overlay-button {
+  display: flex;
+  button {
+    background-color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      background-color: white;
+      opacity: 0.9;
+    }
+  }
 }
 
 .left {
   top: 50vh;
   left: 1px;
+  flex-direction: row;
+
+  @media screen and (max-width: 699px) {
+    top: 1px;
+  }
 }
 
 .right {
-  top: 25vh;
+  top: 50vh;
   right: 5rem;
+  flex-direction: row-reverse;
+
+  @media screen and (max-width: 699px) {
+    top: 1px;
+  }
 }
 
 .top-left {
   top: 5rem;
   left: 1px;
+  flex-direction: row;
+
+  @media screen and (max-width: 699px) {
+    top: 1px;
+  }
 }
 
 .top-right {
   top: 5rem;
   right: 5rem;
+  flex-direction: row-reverse;
+
+  @media screen and (max-width: 699px) {
+    top: 1px;
+  }
 }
 
 .bottom-left {
   bottom: 5rem;
   left: 1px;
+  flex-direction: row;
+
+  @media screen and (max-width: 699px) {
+    bottom: 1px;
+  }
 }
 
 .bottom-right {
   bottom: 5rem;
   right: 5rem;
-}
+  flex-direction: row-reverse;
 
-.left-maximized {
-  left: 1px;
-  .open-close-toggle {
-    max-height: 400px;
-    flex-direction: column;
-    align-self: end;
-
-    button {
-      height: 100px;
-      width: 25px;
-    }
+  @media screen and (max-width: 699px) {
+    bottom: 1px;
   }
-}
-
-.right-maximized {
-  right: 5rem;
-  .open-close-toggle {
-    max-height: 400px;
-    flex-direction: column;
-    align-self: end;
-    margin-left: 0.5rem;
-
-    button {
-      height: 100px;
-      width: 25px;
-    }
-  }
-}
-
-.middle-maximized {
-  top: 25vh;
 }

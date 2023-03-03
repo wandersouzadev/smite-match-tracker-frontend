@@ -48,33 +48,24 @@ export const OverlayTemplate: React.FC = () => {
     <div
       className={cx(
         Styles.wrapper,
-        appConfig?.position ? Styles[appConfig?.position] : Styles.left,
-        appConfig?.isMinimized === false &&
-          (appConfig?.position === "left" || appConfig?.position === "right") &&
-          Styles["middle-maximized"],
-        appConfig?.isMinimized === false &&
-          appConfig?.position.includes("left") &&
-          Styles["left-maximized"],
-        appConfig?.isMinimized === false &&
-          appConfig?.position.includes("right") &&
-          Styles["right-maximized"],
-        appConfig?.position.includes("left") && Styles["left-side"],
-        appConfig?.position.includes("right") && Styles["right-side"]
+        !appConfig?.isMinimized && Styles.maximized
       )}
     >
-      {appConfig?.isMinimized ? <SmiteOverlayMinimized /> : <SmiteOverlay />}
-      <div className={cx(Styles["open-close-toggle"])}>
-        <button
-          type="button"
-          onClick={() =>
-            setAppConfig((oldValue) => ({
-              ...oldValue,
-              isMinimized: !oldValue.isMinimized
-            }))
-          }
-        >
-          {OpenCloseButtonIconToggle}
-        </button>
+      <div className={cx(Styles.overlay, Styles[appConfig?.position])}>
+        {appConfig?.isMinimized ? <SmiteOverlayMinimized /> : <SmiteOverlay />}
+        <div className={cx(Styles["overlay-button"])}>
+          <button
+            type="button"
+            onClick={() =>
+              setAppConfig((oldValue) => ({
+                ...oldValue,
+                isMinimized: !oldValue.isMinimized
+              }))
+            }
+          >
+            {OpenCloseButtonIconToggle}
+          </button>
+        </div>
       </div>
     </div>
   );
