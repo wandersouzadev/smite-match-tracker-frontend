@@ -1,8 +1,7 @@
 .match-tracker {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   font-family: "Penumbra Half Serif";
 
@@ -13,7 +12,6 @@
 
 .match {
   display: flex;
-  width: 100%;
   justify-content: space-evenly;
 
   .order {
@@ -30,7 +28,7 @@
       background-color: $blue3;
     }
 
-    tr:nth-child(odd) {
+    tr:nth-child(even) {
       background-color: $blue2;
     }
   }
