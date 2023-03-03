@@ -1,4 +1,19 @@
-.config-wrapper {
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: $purple8 white;
+  scrollbar-width: thin;
+  scroll-snap-type: none;
+
+  ::-webkit-scrollbar {
+    background-color: white;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $purple8;
+  }
+}
+
+.wrapper {
   position: relative;
   background-color: $mauve1;
   display: flex;

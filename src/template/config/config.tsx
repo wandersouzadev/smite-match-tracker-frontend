@@ -20,7 +20,7 @@ export const ConfigTemplate: React.FC = () => {
   };
 
   return (
-    <div className={Styles["config-wrapper"]}>
+    <div className={Styles.wrapper}>
       <aside className={Styles.aside}>
         <div className={Styles.content}>
           <h2>Accounts</h2>
