@@ -9,9 +9,9 @@ export const SmiteFormError: React.FC = () => {
 
   return (
     <div className={Styles.wrapper}>
-      <strong>Error, profile not found</strong>
+      <strong>SMITE profile not found</strong>
       <strong>
-        Confirm that your <u>SMITE</u> profile is not blocked for viewing
+        Confirm that your <u>SMITE</u> profile is not hidden.
       </strong>
       <button type="button">
         <ArrowClockwise
