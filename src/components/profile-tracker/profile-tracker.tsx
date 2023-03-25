@@ -105,7 +105,7 @@ export const ProfileTracker: React.FC = () => {
             </div>
           </div>
           <div className={Styles.info}>
-            <p>Acc Created</p>
+            <p>Account Created</p>
             <p style={{ opacity: 0.7 }}>
               {dayjs
                 .utc(`${data.Created_Datetime} UTC`)
