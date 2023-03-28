@@ -4,6 +4,9 @@
   width: 100%;
   font-family: "Penumbra Half Serif";
 
+  scrollbar-width: thin;
+  scroll-snap-type: none;
+
   table {
     border-collapse: collapse;
     margin: 0 auto;
