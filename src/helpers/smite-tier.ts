@@ -82,6 +82,6 @@ export const tierNameByIdHelper = (tierId?: string | number) => {
     case "27":
       return "Grandmaster";
     default:
-      return "Bronze III";
+      return "Unranked";
   }
 };
